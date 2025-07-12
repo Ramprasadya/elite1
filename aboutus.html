@@ -107,29 +107,49 @@
     <script>
       window.addEventListener("DOMContentLoaded", () => {
         const imageElement = document.querySelectorAll(".myImage");
+        // Save the previous URL for tracking
+        const previousUrl = document.referrer; // gives you the URL of the page the user came from
+      let base = localStorage.getItem("previousPage");
+      console.log(base);
+      const links = document.querySelectorAll(".url");
+      links.forEach((link) => {
+        link.href = base;
+      });
         const url = localStorage.getItem("myImage");
         const params = new URLSearchParams(window.location.search);
         const fromPage = params.get("from");
         if (fromPage === "geotech") {
           let url =
             "https://static.readdy.ai/image/a63ec0b6f34fb9b66d50256c348ce6a2/f8990d2a20fba43628bb51175cf3c0c1.png";
-           imageElement.forEach((img) => {
+          imageElement.forEach((img) => {
             img.src = url;
           });
+          if (previousUrl) {
+            localStorage.setItem("previousPage", previousUrl);
+            console.log("Previous URL:", previousUrl);
+          }
           localStorage.setItem("myImage", url);
         } else if (fromPage === "studio") {
           let url =
             "https://static.readdy.ai/image/a63ec0b6f34fb9b66d50256c348ce6a2/13f0f75311357b249adf708678e6243f.png";
-           imageElement.forEach((img) => {
+          imageElement.forEach((img) => {
             img.src = url;
           });
+          if (previousUrl) {
+            localStorage.setItem("previousPage", previousUrl);
+            console.log("Previous URL:", previousUrl);
+          }
           localStorage.setItem("myImage", url);
         } else if (fromPage === "consult") {
           let url =
             "https://static.readdy.ai/image/a63ec0b6f34fb9b66d50256c348ce6a2/3e75a26a18e09c570ca45d4c24246ad0.png";
-           imageElement.forEach((img) => {
+          imageElement.forEach((img) => {
             img.src = url;
           });
+          if (previousUrl) {
+            localStorage.setItem("previousPage", previousUrl);
+            console.log("Previous URL:", previousUrl);
+          }
           localStorage.setItem("myImage", url);
         } else {
           imageElement.forEach((img) => {
@@ -149,13 +169,8 @@
       <div
         class="container mx-auto px-6 py-3 flex items-center justify-between"
       >
-        <a href="./geotech.html" class="flex-shrink-0">
-          <img
-          
-            src=""
-            alt="Elite Enterprise Logo"
-            class="h-[60px] myImage"
-          />
+        <a href="" class="flex-shrink-0 url">
+          <img src="" alt="Elite Enterprise Logo" class="h-[60px] myImage" />
         </a>
         <nav class="hidden lg:flex items-center justify-center flex-1 px-8">
           <div class="flex space-x-8">
@@ -608,7 +623,7 @@
       <div class="container mx-auto px-4">
         <div class="flex flex-wrap justify-between gap-y-10 mb-12 text-left">
           <div class="w-full sm:w-[48%] lg:w-[23%] max-w-[280px]">
-            <a href="#"
+            <a href="#" class="url"
               ><img
                 src=""
                 alt="Elite Enterprise Logo"
