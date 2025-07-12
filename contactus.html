@@ -106,13 +106,37 @@
     </style>
   </head>
   <body class="min-h-screen bg-white">
-    <script>
+   <script>
       window.addEventListener("DOMContentLoaded", () => {
-        const imageElement = document.getElementById("myImage");
+        const imageElement = document.querySelectorAll(".myImage");
         const url = localStorage.getItem("myImage");
-
-        if (imageElement && url) {
-          imageElement.src = url;
+        const params = new URLSearchParams(window.location.search);
+        const fromPage = params.get("from");
+        if (fromPage === "geotech") {
+          let url =
+            "https://static.readdy.ai/image/a63ec0b6f34fb9b66d50256c348ce6a2/f8990d2a20fba43628bb51175cf3c0c1.png";
+           imageElement.forEach((img) => {
+            img.src = url;
+          });
+          localStorage.setItem("myImage", url);
+        } else if (fromPage === "studio") {
+          let url =
+            "https://static.readdy.ai/image/a63ec0b6f34fb9b66d50256c348ce6a2/13f0f75311357b249adf708678e6243f.png";
+           imageElement.forEach((img) => {
+            img.src = url;
+          });
+          localStorage.setItem("myImage", url);
+        } else if (fromPage === "consult") {
+          let url =
+            "https://static.readdy.ai/image/a63ec0b6f34fb9b66d50256c348ce6a2/3e75a26a18e09c570ca45d4c24246ad0.png";
+           imageElement.forEach((img) => {
+            img.src = url;
+          });
+          localStorage.setItem("myImage", url);
+        } else {
+          imageElement.forEach((img) => {
+            img.src = url;
+          });
         }
       });
     </script>
@@ -123,29 +147,29 @@
       <div
         class="container mx-auto px-6 py-4 flex items-center justify-between"
       >
-        <a href="/" class="flex items-center">
+        <a href="./geotech.html" class="flex items-center">
           <!-- src="https://static.readdy.ai/image/a63ec0b6f34fb9b66d50256c348ce6a2/14473f2f2ab90e80defb244166b75318.png" -->
           <img
-            id="myImage"
+           
             src=""
             alt="Elite Enterprises Logo"
-            class="h-[60px] w-auto"
+            class="h-[60px] w-auto myImage"
           />
         </a>
         <!-- Desktop Navigation -->
         <nav class="hidden lg:flex items-center space-x-8">
-          <a
+          <!-- <a
             href="/"
             class="text-gray-800 hover:text-primary transition-colors font-semibold"
             >Home</a
-          >
+          > -->
           <a
-            href="/aboutus.html"
+            href="./aboutus.html"
             class="text-gray-800 hover:text-primary transition-colors font-semibold"
             >About Us</a
           >
           <a
-            href="/gallery.html"
+            href="./gallery.html"
             class="text-gray-800 hover:text-primary transition-colors font-semibold"
             >Gallery</a
           >
@@ -155,18 +179,18 @@
             >Services</a
           > -->
           <a
-            href="/careers.html"
+            href="./careers.html"
             class="text-gray-800 hover:text-primary transition-colors font-semibold"
             >Careers</a
           >
-          <a href="/contactus.html" class="text-primary font-semibold"
+          <a href="./contactus.html" class="text-primary font-semibold"
             >Contact Us</a
           >
         </nav>
         <!-- CTA Buttons -->
         <div class="hidden lg:flex items-center space-x-5">
           <a
-            href="/get-started"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSedOxVdlBScF4mcvAEL16t9YG_Ect1InCt6seVVsxDUBLoS8g/viewform?usp=dialog"
             class="px-6 py-3 border-2 border-primary text-primary hover:bg-primary/5 transition-all font-semibold !rounded-button whitespace-nowrap"
             >Get Started</a
           >
@@ -190,11 +214,11 @@
         class="hidden lg:hidden bg-white shadow-lg absolute w-full top-full"
       >
         <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
-          <a
+          <!-- <a
             href="/"
             class="text-gray-800 py-3 hover:text-primary transition-colors font-semibold"
             >Home</a
-          >
+          > -->
           <a
             href="/aboutus.html"
             class="text-gray-800 py-3 hover:text-primary transition-colors font-semibold"
@@ -211,21 +235,21 @@
             >Services</a
           > -->
           <a
-            href="/careers.html"
+            href="./careers.html"
             class="text-gray-800 py-3 hover:text-primary transition-colors font-semibold"
             >Careers</a
           >
-          <a href="/contactus.html" class="text-primary py-3 font-semibold"
+          <a href="./contactus.html" class="text-primary py-3 font-semibold"
             >Contact Us</a
           >
           <div class="flex flex-col space-y-4 pt-4 border-t border-gray-100">
             <a
-              href="/get-started"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSedOxVdlBScF4mcvAEL16t9YG_Ect1InCt6seVVsxDUBLoS8g/viewform?usp=dialog"
               class="px-6 py-3 border-2 border-primary text-primary text-center hover:bg-primary/5 transition-all font-semibold !rounded-button whitespace-nowrap"
               >Get Started</a
             >
             <a
-              href="/contactus.htmlW"
+              href="./contactus.htmlW"
               class="px-6 py-3 bg-primary text-white text-center hover:bg-primary/90 transition-all font-semibold !rounded-button whitespace-nowrap shadow-md hover:shadow-lg"
               >Contact Us</a
             >
@@ -247,7 +271,7 @@
       </div>
     </section>
     <!-- Contact Form Section -->
-    <section class="py-16 bg-gray-50">
+    <!-- <section class="py-16 bg-gray-50">
       <div class="container mx-auto px-4">
         <div
           class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden"
@@ -380,7 +404,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- Contact Information Section -->
     <section class="py-16 bg-white">
       <div class="container mx-auto px-4">
@@ -399,10 +423,10 @@
             </div>
             <h3 class="text-xl font-semibold mb-2">Our Location</h3>
             <p class="text-gray-600">Elite Enterprises</p>
-            <p class="text-gray-600">Baner Road, Pune 411045</p>
+            <p class="text-gray-600">PMHH+6CP Talegaon Dabhade, Maharashtra</p>
             <p class="text-gray-600">Maharashtra, India</p>
             <a
-              href="https://maps.google.com/?q=Elite+Enterprises+Pune+Maharashtra"
+              href="https://maps.app.goo.gl/b5MnUdci5QJzKrNRA"
               target="_blank"
               class="inline-block mt-4 text-primary hover:underline"
               >View on Map</a
@@ -454,19 +478,41 @@
       </div>
     </section>
     <!-- Map Section -->
-    <section class="py-16 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-8">Find Us</h2>
-        <div class="max-w-5xl mx-auto rounded-lg overflow-hidden shadow-md">
-          <div
-            class="h-[400px] w-full bg-cover bg-center"
-            style="
-              background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png');
-            "
-          ></div>
-        </div>
+   </section>
+<!-- Map Section 1 -->
+
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-8">Find Us</h2>
+    <div class="flex  max-w-5xl mx-auto gap-4">
+      
+      <div class="w-full md:w-1/2 rounded-lg overflow-hidden shadow-md">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3778.5694163217972!2d73.67857599999999!3d18.728085999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTjCsDQzJzQxLjEiTiA3M8KwNDAnNDIuOSJF!5e0!3m2!1sen!2sin!4v1751113259515!5m2!1sen!2sin"
+          width="100%" 
+          height="400" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
-    </section>
+
+      <div class="w-full md:w-1/2 rounded-lg overflow-hidden shadow-md">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3263.3768105019076!2d73.84213167441831!3d18.654965565056724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c7f783a91495%3A0x7febb5e949ddc535!2sPrivia%20Business%20Centre%20Pune!5e1!3m2!1sen!2sin!4v1751272769949!5m2!1sen!2sin"
+          width="100%" 
+          height="400" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
     <!-- CTA Banner -->
     <section class="py-16 bg-primary">
       <div class="container mx-auto px-4 text-center">
@@ -483,15 +529,15 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
       <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="flex flex-wrap justify-between gap-y-10 mb-12 text-left">
           <!-- Company Info -->
-          <div>
+          <div class="w-full sm:w-[48%] lg:w-[23%] max-w-[280px]">
             <h3 class="text-xl mb-4">
-              <img
-                src="https://static.readdy.ai/image/a63ec0b6f34fb9b66d50256c348ce6a2/14473f2f2ab90e80defb244166b75318.png"
-                alt="Elite Enterprises Logo"
-                class="h-8 w-auto"
-              />
+               <img
+              src=""
+              alt="Elite Geotech & NDT Logo"
+              class="h-12 w-auto mb-4 myImage"
+            />
             </h3>
             <p class="text-gray-400 mb-4">
               Building excellence since 2010. We specialize in construction,
@@ -526,47 +572,47 @@
             </div>
           </div>
           <!-- Quick Links -->
-          <div>
+          <div class="w-full lg:w-[23%] max-w-[300px] text-center">
             <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
             <ul class="space-y-2">
-              <li>
+              <!-- <li>
                 <a
                   href="/"
                   class="text-gray-400 hover:text-primary transition-colors"
                   >Home</a
                 >
-              </li>
+              </li> -->
               <li>
                 <a
-                  href="/about"
+                  href="aboutus.html"
                   class="text-gray-400 hover:text-primary transition-colors"
                   >About Us</a
                 >
               </li>
-              <li>
+             <!-- <li>
                 <a
                   href="/services"
                   class="text-gray-400 hover:text-primary transition-colors"
                   >Services</a
                 >
-              </li>
+              </li>-->
               <li>
                 <a
-                  href="/gallery"
+                  href="gallery.html"
                   class="text-gray-400 hover:text-primary transition-colors"
                   >Project Gallery</a
                 >
               </li>
               <li>
                 <a
-                  href="/careers"
+                  href="careers.html"
                   class="text-gray-400 hover:text-primary transition-colors"
                   >Careers</a
                 >
               </li>
               <li>
                 <a
-                  href="/contact"
+                  href="contactus.html"
                   class="text-gray-400 hover:text-primary transition-colors"
                   >Contact Us</a
                 >
@@ -574,55 +620,96 @@
             </ul>
           </div>
           <!-- Services -->
-          <div>
+          <div class="w-full sm:w-[48%] lg:w-[23%] max-w-[240px]">
             <h3 class="text-lg font-semibold mb-4">Our Services</h3>
             <ul class="space-y-2">
               <li>
                 <a
                   href="#"
                   class="text-gray-400 hover:text-primary transition-colors"
-                  >Residential Construction</a
+                  >Soil Bearing Capacity Test</a
                 >
               </li>
               <li>
                 <a
                   href="#"
                   class="text-gray-400 hover:text-primary transition-colors"
-                  >Commercial Projects</a
+                  >Site Reports & Recommendations</a
                 >
               </li>
               <li>
                 <a
                   href="#"
                   class="text-gray-400 hover:text-primary transition-colors"
-                  >Interior Design</a
+                  >Non Destructive Test</a
                 >
               </li>
-              <li>
+              <!--<li>
                 <a
                   href="#"
                   class="text-gray-400 hover:text-primary transition-colors"
                   >Renovation Services</a
                 >
-              </li>
+              </li>-->
               <li>
                 <a
                   href="#"
                   class="text-gray-400 hover:text-primary transition-colors"
-                  >Architectural Planning</a
+                  >Destructive Test</a
                 >
               </li>
-              <li>
+              <!--<li>
                 <a
                   href="#"
                   class="text-gray-400 hover:text-primary transition-colors"
                   >Project Management</a
                 >
-              </li>
+              </li>-->
             </ul>
           </div>
+
+
+<!-- Contact Info-->
+
+
+         <div class="w-full sm:w-[48%] lg:w-[23%] max-w-[260px]">
+<h3 class="text-white font-semibold mb-6">Contact Us</h3>
+<ul class="space-y-3">
+<li class="flex items-start space-x-3">
+<i class="ri-map-pin-line mt-1 text-primary"></i>
+<span class="text-gray-400">PMHH+6CP Talegaon Dabhade, Maharashtra</span>
+</li>
+<li class="flex items-start space-x-3">
+<i class="ri-map-pin-line mt-1 text-primary"></i>
+<span class="text-gray-400">Shop B-8, First Floor, Pravia Business Center, Spine Rd, opposite RTO, Jal Vayu Vihar, Sector No. 6, PCMC, Pimpri-Chinchwad, Maharashtra 412105</span>
+</li>
+
+
+<li class="flex flex-col gap-2 items-start">
+  <div class="flex items-center space-x-3">
+    <i class="ri-phone-line text-primary "></i>
+    <span class="text-gray-400">+91 99700 70415</span>
+  </div>
+  <div class="flex items-center space-x-3">
+    <i class="ri-phone-line text-primary "></i>
+    <span class="text-gray-400">02114-22500</span>
+  </div>
+</li>
+
+
+</li>
+<li class="flex items-center space-x-3">
+<i class="ri-mail-line text-primary"></i>
+<span class="text-gray-400">contact@eliteenterprises.com</span>
+</li>
+<li class="flex items-center space-x-3">
+<i class="ri-time-line text-primary"></i>
+<span class="text-gray-400">Mon - Fri: 9:00 AM - 6:00 PM</span>
+</li>
+</ul>
+</div>
           <!-- Newsletter -->
-          <div>
+          <!-- <div>
             <h3 class="text-lg font-semibold mb-4">Subscribe to Newsletter</h3>
             <p class="text-gray-400 mb-4">
               Stay updated with our latest projects and news.
@@ -641,7 +728,7 @@
                 Subscribe
               </button>
             </form>
-          </div>
+          </div> -->
         </div>
         <div
           class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center"

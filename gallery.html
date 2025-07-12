@@ -96,42 +96,125 @@ input[type="number"]::-webkit-outer-spin-button {
 margin: 0;
 }
 </style>
+<!-- <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script> -->
+<!-- <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js"></script> -->
 </head>
 <body class="bg-gray-50">
-     <script>
-  window.addEventListener("DOMContentLoaded", () => {
-    const imageElement = document.getElementById("myImage");
-    const url = localStorage.getItem("myImage");
+<script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const imageElement = document.querySelectorAll(".myImage");
+        const url = localStorage.getItem("myImage");
+        const params = new URLSearchParams(window.location.search);
+        const fromPage = params.get("from");
+        if (fromPage === "geotech") {
+          let url =
+            "https://static.readdy.ai/image/a63ec0b6f34fb9b66d50256c348ce6a2/f8990d2a20fba43628bb51175cf3c0c1.png";
+           imageElement.forEach((img) => {
+            img.src = url;
+          });
+          localStorage.setItem("myImage", url);
+        } else if (fromPage === "studio") {
+          let url =
+            "https://static.readdy.ai/image/a63ec0b6f34fb9b66d50256c348ce6a2/13f0f75311357b249adf708678e6243f.png";
+           imageElement.forEach((img) => {
+            img.src = url;
+          });
+          localStorage.setItem("myImage", url);
+        } else if (fromPage === "consult") {
+          let url =
+            "https://static.readdy.ai/image/a63ec0b6f34fb9b66d50256c348ce6a2/3e75a26a18e09c570ca45d4c24246ad0.png";
+           imageElement.forEach((img) => {
+            img.src = url;
+          });
+          localStorage.setItem("myImage", url);
+        } else {
+          imageElement.forEach((img) => {
+            img.src = url;
+          });
+        }
+      });
+    </script>
 
-    if (imageElement && url) {
-      imageElement.src = url;
-    }
-    
-  });
-</script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+      import { getStorage, ref, listAll, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-storage.js";
+
+      const firebaseConfig = {
+    apiKey: "AIzaSyBNZ_3RV9ubxomYpcwxcWQR-jPfvwYFPKs",
+    authDomain: "massage-2a0f1.firebaseapp.com",
+    databaseURL: "https://massage-2a0f1-default-rtdb.firebaseio.com",
+    projectId: "massage-2a0f1",
+    storageBucket: "massage-2a0f1.appspot.com",
+    messagingSenderId: "917953692256",
+    appId: "1:917953692256:web:84f4d5b19271030c237905"
+  };
+
+      const app = initializeApp(firebaseConfig);
+      const storage = getStorage(app);
+      const listRef = ref(storage, ""); // root folder
+
+      const gallery = document.getElementById("gallery");
+
+      listAll(listRef)
+        .then((res) => {
+          res.items.forEach((itemRef) => {
+            getDownloadURL(itemRef).then((url) => {
+              const img = document.createElement("img");
+              img.src = url;
+              img.alt = itemRef.name;
+              img.className = "w-full aspect-[4/3] object-cover object-top hover:scale-105 transition-transform duration-300";
+              gallery.appendChild(img);
+            });
+          });
+        })
+        .catch((error) => {
+          console.error("Error loading images:", error);
+        });
+    </script>
+
+
+ <!-- <script>
+    const cloudName = " dpbiqvkhs"; // Replace with your Cloudinary cloud name
+    const imageList = [
+      "sample.jpg",
+      "myphoto1.jpg",
+      "travel/image2.jpg", // folders supported
+    ];
+
+    const gallery = document.getElementById("imageGallery");
+
+    imageList.forEach(publicId => {
+      const img = document.createElement("img");
+      img.src = `https://res.cloudinary.com/${cloudName}/image/upload/${publicId}`;
+      gallery.appendChild(img);
+    });
+  </script> -->
+
 <!-- Navigation Bar -->
 <nav class="navbar fixed top-0 left-0 w-full bg-gradient-to-b from-gray-50 to-white rounded-b-xl shadow-sm z-50">
 <div class="container mx-auto px-6">
 <div class="flex items-center justify-between h-20 md:h-[80px]">
 <!-- Logo -->
+ <a href="./geotech.html">
  <img
-          id="myImage"
+         
           src=""
             alt="Elite Enterprises Logo"
-            class="h-[60px] w-auto"
+            class="h-[60px] w-auto myImage"
           />
+          </a>
 <!-- Desktop Navigation -->
 <div class="hidden md:flex items-center justify-center space-x-10">
-<a href="/" class="text-gray-800 hover:text-primary transition-colors font-semibold">Home</a>
-<a href="/aboutus.html" class="text-gray-800 hover:text-primary transition-colors font-semibold">About Us</a>
-<a href="/gallery.html" class="text-primary font-semibold">Gallery</a>
+<!-- <a href="/" class="text-gray-800 hover:text-primary transition-colors font-semibold">Home</a> -->
+<a href="./aboutus.html" class="text-gray-800 hover:text-primary transition-colors font-semibold">About Us</a>
+<a href="./gallery.html" class="text-primary font-semibold">Gallery</a>
 <!-- <a href="/services" class="text-gray-800 hover:text-primary transition-colors font-semibold">Services</a> -->
-<a href="/careers.html" class="text-gray-800 hover:text-primary transition-colors font-semibold">Careers</a>
-<a href="/contactus.html" class="text-gray-800 hover:text-primary transition-colors font-semibold">Contact Us</a>
+<a href="./careers.html" class="text-gray-800 hover:text-primary transition-colors font-semibold">Careers</a>
+<a href="./contactus.html" class="text-gray-800 hover:text-primary transition-colors font-semibold">Contact Us</a>
 </div>
 <!-- Desktop CTA Buttons -->
 <div class="hidden md:flex items-center space-x-5">
-<button class="border-2 border-primary text-primary px-6 py-2.5 rounded-button hover:bg-primary/5 transition-colors whitespace-nowrap font-semibold">Get Started</button>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSedOxVdlBScF4mcvAEL16t9YG_Ect1InCt6seVVsxDUBLoS8g/viewform?usp=dialog" class="border-2 border-primary text-primary px-6 py-2.5 rounded-button hover:bg-primary/5 transition-colors whitespace-nowrap font-semibold">Get Started</a>
 <button class="bg-primary text-white px-6 py-2.5 rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap font-semibold shadow-sm">Contact Us</button>
 </div>
 <!-- Mobile Menu Button -->
@@ -142,14 +225,14 @@ margin: 0;
 <!-- Mobile Menu -->
 <div class="mobile-menu md:hidden" id="mobile-menu">
 <div class="py-6 space-y-4">
-<a href="/" class="block text-gray-800 hover:text-primary transition-colors font-semibold">Home</a>
+<!-- <a href="/" class="block text-gray-800 hover:text-primary transition-colors font-semibold">Home</a> -->
 <a href="/aboutus.html" class="block text-gray-800 hover:text-primary transition-colors font-semibold">About Us</a>
 <a href="/gallery.html" class="block text-primary font-semibold">Gallery</a>
 <!-- <a href="/services" class="block text-gray-800 hover:text-primary transition-colors font-semibold">Services</a> -->
 <a href="/careers.html" class="block text-gray-800 hover:text-primary transition-colors font-semibold">Careers</a>
 <a href="/contactus.html" class="block text-gray-800 hover:text-primary transition-colors font-semibold">Contact Us</a>
 <div class="flex flex-col space-y-3 pt-4">
-<button class="border-2 border-primary text-primary px-6 py-2.5 rounded-button hover:bg-primary/5 transition-colors whitespace-nowrap font-semibold">Get Started</button>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSedOxVdlBScF4mcvAEL16t9YG_Ect1InCt6seVVsxDUBLoS8g/viewform?usp=dialog" class="border-2 border-primary text-primary px-6 py-2.5 rounded-button hover:bg-primary/5 transition-colors whitespace-nowrap font-semibold">Get Started</a>
 <button class="bg-primary text-white px-6 py-2.5 rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap font-semibold shadow-sm">Contact Us</button>
 </div>
 </div>
@@ -172,44 +255,10 @@ margin: 0;
 <!-- Gallery Grid -->
 <section class="py-16 md:py-20">
 <div class="container mx-auto px-6 max-w-7xl">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-<!-- Gallery Item 1 -->
-<div class="gallery-item cursor-pointer overflow-hidden rounded">
-<img src="https://readdy.ai/api/search-image?query=modern%20high-rise%20commercial%20building%20with%20glass%20facade%2C%20clean%20architectural%20lines%2C%20professional%20real%20estate%20photography%2C%20bright%20daylight%2C%20urban%20setting%2C%20detailed%20exterior%20view&width=800&height=600&seq=gallery1&orientation=landscape" alt="Project Image" class="w-full aspect-[4/3] object-cover object-top hover:scale-105 transition-transform duration-300">
+<div id="gallery" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-4 py-8">
+  <!-- Dynamic images will be injected here -->
 </div>
-<!-- Gallery Item 2 -->
-<div class="gallery-item cursor-pointer overflow-hidden rounded">
-<img src="https://readdy.ai/api/search-image?query=modern%20residential%20apartment%20complex%20with%20landscaped%20gardens%2C%20contemporary%20architecture%2C%20professional%20real%20estate%20photography%2C%20bright%20daylight%2C%20clean%20lines%2C%20detailed%20exterior%20view&width=800&height=600&seq=gallery2&orientation=landscape" alt="Project Image" class="w-full aspect-[4/3] object-cover object-top hover:scale-105 transition-transform duration-300">
-</div>
-<!-- Gallery Item 3 -->
-<div class="gallery-item cursor-pointer overflow-hidden rounded">
-<img src="https://readdy.ai/api/search-image?query=modern%20highway%20infrastructure%20project%20with%20bridges%20and%20overpasses%2C%20civil%20engineering%20marvel%2C%20professional%20infrastructure%20photography%2C%20bright%20daylight%2C%20detailed%20construction%20elements&width=800&height=600&seq=gallery3&orientation=landscape" alt="Project Image" class="w-full aspect-[4/3] object-cover object-top hover:scale-105 transition-transform duration-300">
-</div>
-<!-- Gallery Item 4 -->
-<div class="gallery-item cursor-pointer overflow-hidden rounded">
-<img src="https://readdy.ai/api/search-image?query=modern%20hospital%20building%20with%20clean%20design%2C%20healthcare%20facility%20architecture%2C%20professional%20architectural%20photography%2C%20bright%20daylight%2C%20detailed%20exterior%20view&width=800&height=600&seq=gallery4&orientation=landscape" alt="Project Image" class="w-full aspect-[4/3] object-cover object-top hover:scale-105 transition-transform duration-300">
-</div>
-<!-- Gallery Item 5 -->
-<div class="gallery-item cursor-pointer overflow-hidden rounded">
-<img src="https://readdy.ai/api/search-image?query=modern%20shopping%20mall%20with%20glass%20atrium%2C%20retail%20architecture%2C%20professional%20commercial%20photography%2C%20bright%20interior%20lighting%2C%20detailed%20architectural%20elements&width=800&height=600&seq=gallery5&orientation=landscape" alt="Project Image" class="w-full aspect-[4/3] object-cover object-top hover:scale-105 transition-transform duration-300">
-</div>
-<!-- Gallery Item 6 -->
-<div class="gallery-item cursor-pointer overflow-hidden rounded">
-<img src="https://readdy.ai/api/search-image?query=modern%20industrial%20facility%20with%20advanced%20manufacturing%20equipment%2C%20industrial%20architecture%2C%20professional%20industrial%20photography%2C%20bright%20lighting%2C%20detailed%20technical%20elements&width=800&height=600&seq=gallery6&orientation=landscape" alt="Project Image" class="w-full aspect-[4/3] object-cover object-top hover:scale-105 transition-transform duration-300">
-</div>
-<!-- Gallery Item 7 -->
-<div class="gallery-item cursor-pointer overflow-hidden rounded">
-<img src="https://readdy.ai/api/search-image?query=modern%20school%20campus%20with%20innovative%20architecture%2C%20educational%20facility%20design%2C%20professional%20architectural%20photography%2C%20bright%20daylight%2C%20detailed%20exterior%20view&width=800&height=600&seq=gallery7&orientation=landscape" alt="Project Image" class="w-full aspect-[4/3] object-cover object-top hover:scale-105 transition-transform duration-300">
-</div>
-<!-- Gallery Item 8 -->
-<div class="gallery-item cursor-pointer overflow-hidden rounded">
-<img src="https://readdy.ai/api/search-image?query=modern%20water%20treatment%20plant%20with%20advanced%20filtration%20systems%2C%20environmental%20engineering%20project%2C%20professional%20industrial%20photography%2C%20bright%20daylight%2C%20detailed%20technical%20elements&width=800&height=600&seq=gallery8&orientation=landscape" alt="Project Image" class="w-full aspect-[4/3] object-cover object-top hover:scale-105 transition-transform duration-300">
-</div>
-<!-- Gallery Item 9 -->
-<div class="gallery-item cursor-pointer overflow-hidden rounded">
-<img src="https://readdy.ai/api/search-image?query=modern%20luxury%20hotel%20with%20elegant%20facade%2C%20hospitality%20architecture%2C%20professional%20architectural%20photography%2C%20bright%20daylight%2C%20detailed%20exterior%20view&width=800&height=600&seq=gallery9&orientation=landscape" alt="Project Image" class="w-full aspect-[4/3] object-cover object-top hover:scale-105 transition-transform duration-300">
-</div>
-</div>
+
 <!-- Load More Button -->
 <div class="mt-12 text-center">
 <button class="load-more bg-primary text-white px-6 py-3 rounded-button hover:bg-primary/90 transition-colors flex items-center justify-center mx-auto whitespace-nowrap">
@@ -337,11 +386,15 @@ document.addEventListener("DOMContentLoaded", function () {
 <!-- Footer -->
 <footer class="bg-gray-900 text-gray-300 pt-16 pb-12">
 <div class="container mx-auto px-6">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+<div class="flex flex-wrap justify-between gap-y-10 mb-12 text-left">
 <!-- Company Info -->
-<div>
-<a href="/" class="font-['Pacifico'] text-2xl text-white mb-6 block">logo</a>
-<p class="text-sm leading-relaxed mb-6">Elite Enterprises has been at the forefront of engineering excellence since 1995, delivering innovative solutions across Maharashtra.</p>
+<div class="w-full sm:w-[48%] lg:w-[23%] max-w-[280px]">
+ <img
+              src=""
+              alt="Elite Geotech & NDT Logo"
+              class="h-12 w-auto mb-4 myImage "
+            />
+<p class="text-sm leading-relaxed mb-6">Elite Geotech & NDT has been at the forefront of engineering excellence since 1995, delivering innovative solutions across Maharashtra.</p>
 <div class="flex space-x-4">
 <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full border border-gray-700 hover:border-primary hover:text-primary transition-colors">
 <i class="ri-linkedin-line"></i>
@@ -358,45 +411,59 @@ document.addEventListener("DOMContentLoaded", function () {
 </div>
 </div>
 <!-- Quick Links -->
-<div>
+<div class="w-full lg:w-[23%] max-w-[300px] text-center">
 <h3 class="text-white font-semibold mb-6">Quick Links</h3>
 <ul class="space-y-3">
-<li><a href="/aboutus.html" class="hover:text-primary transition-colors">About Us</a></li>
+<li><a href="aboutus.html" class="hover:text-primary transition-colors">About Us</a></li>
 <!-- <li><a href="/services" class="hover:text-primary transition-colors">Our Services</a></li> -->
 <!-- <li><a href="/projects" class="hover:text-primary transition-colors">Latest Projects</a></li> -->
-<li><a href="/careers.html" class="hover:text-primary transition-colors">Career Opportunities</a></li>
+ <li><a href="gallery.html" class="hover:text-primary transition-colors">Project Gallery</a></li> 
+<li><a href="careers.html" class="hover:text-primary transition-colors">Careers </a></li>
+ <li><a href="contactus.html" class="hover:text-primary transition-colors">Contact Us</a></li> 
 <!-- <li><a href="/news" class="hover:text-primary transition-colors">News & Updates</a></li> -->
 </ul>
 </div>
 <!-- Services -->
-<div>
+<div class="w-full sm:w-[48%] lg:w-[23%] max-w-[240px]">
 <h3 class="text-white font-semibold mb-6">Our Services</h3>
 <ul class="space-y-3">
-<li><a href="/services/construction" class="hover:text-primary transition-colors">Construction Management</a></li>
-<li><a href="/services/design" class="hover:text-primary transition-colors">Architectural Design</a></li>
-<li><a href="/services/renovation" class="hover:text-primary transition-colors">Renovation Services</a></li>
-<li><a href="/services/consulting" class="hover:text-primary transition-colors">Engineering Consulting</a></li>
-<li><a href="/services/sustainability" class="hover:text-primary transition-colors">Sustainable Solutions</a></li>
+<li><a href="/services/construction" class="hover:text-primary transition-colors">Soil Bearing Capacity Test</a></li>
+<li><a href="/services/design" class="hover:text-primary transition-colors">Site Reports & Recommendations</a></li>
+<li><a href="/services/renovation" class="hover:text-primary transition-colors">Non Destructive Test
+</a></li>
+<li><a href="/services/consulting" class="hover:text-primary transition-colors">Destructive Test</a></li>
+<!--<li><a href="/services/sustainability" class="hover:text-primary transition-colors">Sustainable Solutions</a></li>-->
 </ul>
 </div>
 <!-- Contact Info -->
-<div>
+<div class="w-full sm:w-[48%] lg:w-[23%] max-w-[260px]">
 <h3 class="text-white font-semibold mb-6">Contact Us</h3>
 <ul class="space-y-3">
 <li class="flex items-start space-x-3">
-<i class="ri-map-pin-line mt-1"></i>
-<span>123 Business Hub, Bandra Kurla Complex, Mumbai, Maharashtra 400051</span>
+<i class="ri-map-pin-line mt-1 text-primary"></i>
+<span>PMHH+6CP Talegaon Dabhade, Maharashtra</span>
 </li>
-<li class="flex items-center space-x-3">
-<i class="ri-phone-line"></i>
-<span>+91 22 1234 5678</span>
+<li class="flex items-start space-x-3">
+<i class="ri-map-pin-line mt-1 text-primary"></i>
+<span>Shop B-8, First Floor, Pravia Business Center, Spine Rd, opposite RTO, Jal Vayu Vihar, Sector No. 6, PCMC, Pimpri-Chinchwad, Maharashtra 412105</span>
 </li>
+<li class="flex flex-col gap-2 items-start">
+  <div class="flex items-center space-x-3">
+    <i class="ri-phone-line text-primary "></i>
+    <span>+91 99700 70415</span>
+  </div>
+  <div class="flex items-center space-x-3">
+    <i class="ri-phone-line text-primary "></i>
+    <span>02114-22500</span>
+  </div>
+</li>
+
 <li class="flex items-center space-x-3">
-<i class="ri-mail-line"></i>
+<i class="ri-mail-line text-primary"></i>
 <span>contact@eliteenterprises.com</span>
 </li>
 <li class="flex items-center space-x-3">
-<i class="ri-time-line"></i>
+<i class="ri-time-line text-primary"></i>
 <span>Mon - Fri: 9:00 AM - 6:00 PM</span>
 </li>
 </ul>
