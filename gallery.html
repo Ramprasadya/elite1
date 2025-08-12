@@ -158,43 +158,89 @@ margin: 0;
         }
       });
     </script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+import { getStorage, ref, listAll, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-storage.js";
 
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
-      import { getStorage, ref, listAll, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-storage.js";
+// Firebase config
+const firebaseConfig = {
+  apiKey: "AIzaSyBNZ_3RV9ubxomYpcwxcWQR-jPfvwYFPKs",
+  authDomain: "massage-2a0f1.firebaseapp.com",
+  databaseURL: "https://massage-2a0f1-default-rtdb.firebaseio.com",
+  projectId: "massage-2a0f1",
+  storageBucket: "massage-2a0f1.appspot.com",
+  messagingSenderId: "917953692256",
+  appId: "1:917953692256:web:84f4d5b19271030c237905"
+};
 
-      const firebaseConfig = {
-    apiKey: "AIzaSyBNZ_3RV9ubxomYpcwxcWQR-jPfvwYFPKs",
-    authDomain: "massage-2a0f1.firebaseapp.com",
-    databaseURL: "https://massage-2a0f1-default-rtdb.firebaseio.com",
-    projectId: "massage-2a0f1",
-    storageBucket: "massage-2a0f1.appspot.com",
-    messagingSenderId: "917953692256",
-    appId: "1:917953692256:web:84f4d5b19271030c237905"
-  };
+const app = initializeApp(firebaseConfig);
+const storage = getStorage(app);
 
-      const app = initializeApp(firebaseConfig);
-      const storage = getStorage(app);
-      const listRef = ref(storage, ""); // root folder
+const gallery = document.getElementById("gallery");
+const switches = document.querySelectorAll(".category-switch");
+const loadMoreBtn = document.getElementById("loadMoreBtn");
 
-      const gallery = document.getElementById("gallery");
+let allImages = [];
+let currentIndex = 0;
+const IMAGES_PER_LOAD = 12;
 
-      listAll(listRef)
-        .then((res) => {
-          res.items.forEach((itemRef) => {
-            getDownloadURL(itemRef).then((url) => {
-              const img = document.createElement("img");
-              img.src = url;
-              img.alt = itemRef.name;
-              img.className = "w-full aspect-[4/3] object-cover object-top hover:scale-105 transition-transform duration-300";
-              gallery.appendChild(img);
-            });
-          });
-        })
-        .catch((error) => {
-          console.error("Error loading images:", error);
-        });
-    </script>
+async function loadImages(category) {
+  gallery.innerHTML = "";
+  allImages = [];
+  currentIndex = 0;
+  loadMoreBtn.style.display = "none"; // hide until ready
+
+  const folderRef = ref(storage, `${category}/`);
+  const res = await listAll(folderRef);
+
+  // Fetch all image URLs first
+  const urls = await Promise.all(res.items.map(itemRef => getDownloadURL(itemRef)));
+  allImages = urls;
+
+  // Show first batch
+  showNextImages();
+}
+
+function showNextImages() {
+  const nextImages = allImages.slice(currentIndex, currentIndex + IMAGES_PER_LOAD);
+  nextImages.forEach((url) => {
+    const img = document.createElement("img");
+    img.src = url;
+    img.className = "w-full aspect-[4/3] object-cover object-top hover:scale-105 rounded-md transition-transform duration-300";
+    gallery.appendChild(img);
+  });
+
+  currentIndex += IMAGES_PER_LOAD;
+
+  // Show or hide load more button
+  if (currentIndex >= allImages.length) {
+    loadMoreBtn.style.display = "none";
+  } else {
+    loadMoreBtn.style.display = "flex";
+  }
+}
+
+// Handle switch change (single selection)
+switches.forEach((sw) => {
+  sw.addEventListener("change", () => {
+    if (sw.checked) {
+      switches.forEach((other) => {
+        if (other !== sw) other.checked = false;
+      });
+      loadImages(sw.value);
+    }
+  });
+});
+
+// Load More button click
+loadMoreBtn.addEventListener("click", showNextImages);
+
+// Load default category (Banglow)
+window.addEventListener("DOMContentLoaded", () => {
+  loadImages("banglow");
+});
+
+</script>
 
 
  <!-- <script>
@@ -278,16 +324,68 @@ margin: 0;
 <!-- Gallery Grid -->
 <!-- Gallery Grid -->
 <section class="py-16 md:py-20">
-<div class="container mx-auto px-6 max-w-7xl">
-<div id="gallery" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-4 py-8">
+<div class="container mx-auto px-6 max-w-9xl">
+  <div class="flex gap-4 p-4">
+  <!-- Banglow -->
+  <label class="inline-flex items-center cursor-pointer">
+    <input type="checkbox" value="banglow" class="sr-only peer category-switch" checked>
+    <div class="relative w-11 h-6 bg-gray-200 rounded-full 
+                peer peer-focus:ring-4 peer-focus:ring-blue-300 
+                dark:peer-focus:ring-blue-800 dark:bg-gray-700 
+                peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full 
+                peer-checked:after:border-white after:content-[''] after:absolute 
+                after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 
+                after:border after:rounded-full after:h-5 after:w-5 after:transition-all 
+                dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600">
+    </div>
+    <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Banglow</span>
+  </label>
+
+  <!-- Industry -->
+  <label class="inline-flex items-center cursor-pointer">
+    <input type="checkbox" value="industry" class="sr-only peer category-switch">
+    <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 
+                dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full 
+                rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] 
+                after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border 
+                after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 
+                peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600">
+    </div>
+    <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Industry</span>
+  </label>
+  <!-- Restaurant -->
+  <label class="inline-flex items-center cursor-pointer">
+    <input type="checkbox" value="restaurant" class="sr-only peer category-switch">
+    <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 
+                dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full 
+                rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] 
+                after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border 
+                after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 
+                peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600">
+    </div>
+    <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Restaurant</span>
+  </label>
+  <!-- Shades -->
+  <label class="inline-flex items-center cursor-pointer">
+    <input type="checkbox" value="shades" class="sr-only peer category-switch">
+    <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 
+                dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full 
+                rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] 
+                after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border 
+                after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 
+                peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600">
+    </div>
+    <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Shades</span>
+  </label>
+</div>
+<div id="gallery" class=" w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 px-4 py-8">
   <!-- Dynamic images will be injected here -->
 </div>
 
 <!-- Load More Button -->
 <div class="mt-12 text-center">
-<button class="load-more bg-primary text-white px-6 py-3 rounded-button hover:bg-primary/90 transition-colors flex items-center justify-center mx-auto whitespace-nowrap">
-<span>Load More</span>
-<div class="spinner ml-2"></div>
+<button id="loadMoreBtn" class="bg-primary text-white px-6 py-3 rounded-button hover:bg-primary/90 transition-colors flex items-center justify-center mx-auto whitespace-nowrap">
+  <span>Load More</span>
 </button>
 </div>
 </div>
