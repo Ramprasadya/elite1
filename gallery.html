@@ -99,6 +99,26 @@ margin: 0;
         text-align: justify;
      
       }
+      #gallery {
+  column-count: 4; /* Number of columns, adjust for screen size */
+  column-gap: 16px; /* Gap between columns */
+}
+.pinterest-img {
+  width: 100%;
+  margin-bottom: 16px;
+  display: block;
+  break-inside: avoid; /* Prevent images from breaking across columns */
+  border-radius: 10px; /* Optional: For rounded corners */
+}
+@media (max-width: 1024px) {
+  #gallery { column-count: 3; }
+}
+@media (max-width: 768px) {
+  #gallery { column-count: 2; }
+}
+@media (max-width: 640px) {
+  #gallery { column-count: 1; }
+}
 </style>
 <!-- <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script> -->
 <!-- <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js"></script> -->
@@ -206,7 +226,7 @@ function showNextImages() {
   nextImages.forEach((url) => {
     const img = document.createElement("img");
     img.src = url;
-    img.className = "w-full aspect-[4/3] object-cover object-top hover:scale-105 rounded-md transition-transform duration-300";
+    img.className = "pinterest-img";
     gallery.appendChild(img);
   });
 
@@ -325,7 +345,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <!-- Gallery Grid -->
 <section class="py-16 md:py-20">
 <div class="container mx-auto px-6 max-w-9xl">
-  <div class="flex gap-4 p-4">
+  <div class="flex gap-4 p-4 mb-8 w-full justify-center ">
   <!-- Banglow -->
   <label class="inline-flex items-center cursor-pointer">
     <input type="checkbox" value="banglow" class="sr-only peer category-switch" checked>
@@ -378,7 +398,8 @@ window.addEventListener("DOMContentLoaded", () => {
     <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Shades</span>
   </label>
 </div>
-<div id="gallery" class=" w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 px-4 py-8">
+ <!-- class=" w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 px-4 py-8" -->
+<div id="gallery">
   <!-- Dynamic images will be injected here -->
 </div>
 
