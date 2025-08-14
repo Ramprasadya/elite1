@@ -100,7 +100,7 @@ margin: 0;
      
       }
       #gallery {
-  column-count: 4; /* Number of columns, adjust for screen size */
+  column-count: 3; /* Number of columns, adjust for screen size */
   column-gap: 16px; /* Gap between columns */
 }
 .pinterest-img {
@@ -183,15 +183,15 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebas
 import { getStorage, ref, listAll, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-storage.js";
 
 // Firebase config
-const firebaseConfig = {
-  apiKey: "AIzaSyBNZ_3RV9ubxomYpcwxcWQR-jPfvwYFPKs",
-  authDomain: "massage-2a0f1.firebaseapp.com",
-  databaseURL: "https://massage-2a0f1-default-rtdb.firebaseio.com",
-  projectId: "massage-2a0f1",
-  storageBucket: "massage-2a0f1.appspot.com",
-  messagingSenderId: "917953692256",
-  appId: "1:917953692256:web:84f4d5b19271030c237905"
-};
+ const firebaseConfig = {
+    apiKey: "AIzaSyCMVqKVvQnJH5whw6HCccQFRmG0NqVSK3M",
+    authDomain: "projects-afdbf.firebaseapp.com",
+    projectId: "projects-afdbf",
+    storageBucket: "projects-afdbf.firebasestorage.app",
+    messagingSenderId: "856097443332",
+    appId: "1:856097443332:web:185b375aa1b7f491562f51",
+    measurementId: "G-WWL6ZGGZ05"
+  };
 
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
@@ -202,7 +202,7 @@ const loadMoreBtn = document.getElementById("loadMoreBtn");
 
 let allImages = [];
 let currentIndex = 0;
-const IMAGES_PER_LOAD = 12;
+const IMAGES_PER_LOAD = 9;
 
 async function loadImages(category) {
   gallery.innerHTML = "";
@@ -345,7 +345,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <!-- Gallery Grid -->
 <section class="py-16 md:py-20">
 <div class="container mx-auto px-6 max-w-9xl">
-  <div class="flex gap-4 p-4 mb-8 w-full justify-center ">
+  <div class="flex flex-wrap gap-4 p-4 mb-8 w-full justify-center ">
   <!-- Banglow -->
   <label class="inline-flex items-center cursor-pointer">
     <input type="checkbox" value="banglow" class="sr-only peer category-switch" checked>
@@ -363,7 +363,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   <!-- Industry -->
   <label class="inline-flex items-center cursor-pointer">
-    <input type="checkbox" value="industry" class="sr-only peer category-switch">
+    <input type="checkbox" value="building" class="sr-only peer category-switch">
     <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 
                 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full 
                 rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] 
@@ -371,7 +371,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 
                 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600">
     </div>
-    <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Industry</span>
+    <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Buildings</span>
   </label>
   <!-- Restaurant -->
   <label class="inline-flex items-center cursor-pointer">
@@ -396,6 +396,18 @@ window.addEventListener("DOMContentLoaded", () => {
                 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600">
     </div>
     <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Shades</span>
+  </label>
+  <!-- Resort -->
+  <label class="inline-flex items-center cursor-pointer">
+    <input type="checkbox" value="resort" class="sr-only peer category-switch">
+    <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 
+                dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full 
+                rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] 
+                after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border 
+                after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 
+                peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600">
+    </div>
+    <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Resort</span>
   </label>
 </div>
  <!-- class=" w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 px-4 py-8" -->
