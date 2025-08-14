@@ -107,60 +107,7 @@
   </head>
   <body class="bg-white text-gray-800">
     <script></script>
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const imageElement = document.querySelectorAll(".myImage");
-        // Save the previous URL for tracking
-        const previousUrl = document.referrer; // gives you the URL of the page the user came from
-        let base = localStorage.getItem("previousPage");
-        console.log(base);
-        const links = document.querySelectorAll(".url");
-        links.forEach((link) => {
-          link.href = base;
-        });
-        const url = localStorage.getItem("myImage");
-        const params = new URLSearchParams(window.location.search);
-        const fromPage = params.get("from");
-        if (fromPage === "geotech") {
-          let url =
-            "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fgeotech.png?alt=media&token=0a632c2d-43ba-45b5-a60a-6b528730f14f";
-          imageElement.forEach((img) => {
-            img.src = url;
-          });
-          if (previousUrl) {
-            localStorage.setItem("previousPage", previousUrl);
-            console.log("Previous URL:", previousUrl);
-          }
-          localStorage.setItem("myImage", url);
-        } else if (fromPage === "studio") {
-          let url =
-            "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fstudio.png?alt=media&token=cb1eaca5-28c0-4730-a9db-92537a07823e";
-          imageElement.forEach((img) => {
-            img.src = url;
-          });
-          if (previousUrl) {
-            localStorage.setItem("previousPage", previousUrl);
-            console.log("Previous URL:", previousUrl);
-          }
-          localStorage.setItem("myImage", url);
-        } else if (fromPage === "consult") {
-          let url =
-            "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fconsult.png?alt=media&token=b420c0a2-9d3b-4fbc-9fc2-540c0495e553";
-          imageElement.forEach((img) => {
-            img.src = url;
-          });
-          if (previousUrl) {
-            localStorage.setItem("previousPage", previousUrl);
-            console.log("Previous URL:", previousUrl);
-          }
-          localStorage.setItem("myImage", url);
-        } else {
-          imageElement.forEach((img) => {
-            img.src = url;
-          });
-        }
-      });
-    </script>
+
     <!-- Header/Navigation -->
     <header
       class="fixed w-full z-50"
@@ -641,9 +588,10 @@
           <div class="w-full sm:w-[48%] lg:w-[23%] max-w-[280px]">
             <a href="" class="url"
               ><img
+               id="footerImage"
                 src=""
                 alt="Elite Enterprise Logo"
-                class="h-[150px] -mt-[2.5rem] -mb-8 myImage"
+                class="h-[150px] -mt-[2.5rem] -mb-8 "
             /></a>
             <p class="text-gray-400 mb-4">
               Building excellence through innovation and integrity since 2012.
@@ -827,6 +775,72 @@
         fadeElements.forEach((element) => {
           observer.observe(element);
         });
+      });
+    </script>
+     <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const imageElement = document.querySelectorAll(".myImage");
+        const footerImage =  document.querySelector("#footerImage")
+        // Save the previous URL for tracking
+        const previousUrl = document.referrer; // gives you the URL of the page the user came from
+      let base = localStorage.getItem("previousPage");
+      console.log(base);
+      const links = document.querySelectorAll(".url");
+      links.forEach((link) => {
+        link.href = base;
+      });
+        const url = localStorage.getItem("myImage");
+        const footer = localStorage.getItem("footer")
+        const params = new URLSearchParams(window.location.search);
+        const fromPage = params.get("from");
+        if (fromPage === "geotech") {
+          let url =
+            "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fgeotech.png?alt=media&token=0a632c2d-43ba-45b5-a60a-6b528730f14f";
+          let footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fgeotech%20white.png?alt=media&token=cf2a1167-4c9c-437e-8fa9-1d6898dab70a"
+          imageElement.forEach((img) => {
+            img.src = url;
+          });
+          footerImage.src = footer;
+          if (previousUrl) {
+            localStorage.setItem("previousPage", previousUrl);
+            console.log("Previous URL:", previousUrl);
+          }
+          localStorage.setItem("myImage", url);
+          localStorage.setItem("footer", footer);
+        } else if (fromPage === "studio") {
+          let url =
+            "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fstudio.png?alt=media&token=cb1eaca5-28c0-4730-a9db-92537a07823e";
+          let footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fstudio%20white.png?alt=media&token=8a25caa3-75f4-42b6-b354-b10d35e64f07"
+          imageElement.forEach((img) => {
+            img.src = url;
+          });
+          footerImage.src = footer;
+          if (previousUrl) {
+            localStorage.setItem("previousPage", previousUrl);
+            console.log("Previous URL:", previousUrl);
+          }
+          localStorage.setItem("myImage", url);
+          localStorage.setItem("footer", footer);
+        } else if (fromPage === "consult") {
+          let url =
+            "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fconsult.png?alt=media&token=b420c0a2-9d3b-4fbc-9fc2-540c0495e553";
+          let footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fconsult%20white.png?alt=media&token=3a26cd8d-5b3f-4b49-8ce2-e90cce8cccc3"
+          imageElement.forEach((img) => {
+            img.src = url;
+          });
+          footerImage.src = footer
+          if (previousUrl) {
+            localStorage.setItem("previousPage", previousUrl);
+            console.log("Previous URL:", previousUrl);
+          }
+          localStorage.setItem("myImage", url);
+          localStorage.setItem("footer", footer);
+        } else {
+          imageElement.forEach((img) => {
+            img.src = url;
+          });
+          footerImage.src = footer;
+        }
       });
     </script>
   </body>

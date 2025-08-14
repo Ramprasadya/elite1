@@ -124,7 +124,7 @@ margin: 0;
 <!-- <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js"></script> -->
 </head>
 <body class="bg-gray-50">
- <script>
+ <!-- <script>
       window.addEventListener("DOMContentLoaded", () => {
         const imageElement = document.querySelectorAll(".myImage");
         // Save the previous URL for tracking
@@ -177,7 +177,7 @@ margin: 0;
           });
         }
       });
-    </script>
+    </script> -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
 import { getStorage, ref, listAll, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-storage.js";
@@ -538,6 +538,72 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
+ <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const imageElement = document.querySelectorAll(".myImage");
+        const footerImage =  document.querySelector("#footerImage")
+        // Save the previous URL for tracking
+        const previousUrl = document.referrer; // gives you the URL of the page the user came from
+      let base = localStorage.getItem("previousPage");
+      console.log(base);
+      const links = document.querySelectorAll(".url");
+      links.forEach((link) => {
+        link.href = base;
+      });
+        const url = localStorage.getItem("myImage");
+        const footer = localStorage.getItem("footer")
+        const params = new URLSearchParams(window.location.search);
+        const fromPage = params.get("from");
+        if (fromPage === "geotech") {
+          let url =
+            "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fgeotech.png?alt=media&token=0a632c2d-43ba-45b5-a60a-6b528730f14f";
+          let footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fgeotech%20white.png?alt=media&token=cf2a1167-4c9c-437e-8fa9-1d6898dab70a"
+          imageElement.forEach((img) => {
+            img.src = url;
+          });
+          footerImage.src = footer;
+          if (previousUrl) {
+            localStorage.setItem("previousPage", previousUrl);
+            console.log("Previous URL:", previousUrl);
+          }
+          localStorage.setItem("myImage", url);
+          localStorage.setItem("footer", footer);
+        } else if (fromPage === "studio") {
+          let url =
+            "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fstudio.png?alt=media&token=cb1eaca5-28c0-4730-a9db-92537a07823e";
+          let footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fstudio%20white.png?alt=media&token=8a25caa3-75f4-42b6-b354-b10d35e64f07"
+          imageElement.forEach((img) => {
+            img.src = url;
+          });
+          footerImage.src = footer;
+          if (previousUrl) {
+            localStorage.setItem("previousPage", previousUrl);
+            console.log("Previous URL:", previousUrl);
+          }
+          localStorage.setItem("myImage", url);
+          localStorage.setItem("footer", footer);
+        } else if (fromPage === "consult") {
+          let url =
+            "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fconsult.png?alt=media&token=b420c0a2-9d3b-4fbc-9fc2-540c0495e553";
+          let footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fconsult%20white.png?alt=media&token=3a26cd8d-5b3f-4b49-8ce2-e90cce8cccc3"
+          imageElement.forEach((img) => {
+            img.src = url;
+          });
+          footerImage.src = footer
+          if (previousUrl) {
+            localStorage.setItem("previousPage", previousUrl);
+            console.log("Previous URL:", previousUrl);
+          }
+          localStorage.setItem("myImage", url);
+          localStorage.setItem("footer", footer);
+        } else {
+          imageElement.forEach((img) => {
+            img.src = url;
+          });
+          footerImage.src = footer;
+        }
+      });
+    </script>
 <!-- Footer -->
 <footer class="bg-gray-900 text-gray-300 pt-16 pb-12">
 <div class="container mx-auto px-6">
@@ -547,9 +613,10 @@ document.addEventListener("DOMContentLoaded", function () {
   <a href="" class="url" >
 
     <img
+    id="footerImage"
     src=""
     alt="Elite Geotech & NDT Logo"
-    class="h-[150px] w-auto -mt-[2.5rem] -mb-4 myImage "
+    class="h-[150px] w-auto -mt-[2.5rem] -mb-4 "
     />
   </a>
 <p class="text-sm leading-relaxed mb-6">Elite Geotech & NDT has been at the forefront of engineering excellence since 1995, delivering innovative solutions across Maharashtra.</p>
