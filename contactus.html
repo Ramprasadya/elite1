@@ -1,116 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us - Elite Enterprises</title>
-    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: { primary: "#f7941d", secondary: "#333333" },
-            borderRadius: {
-              none: "0px",
-              sm: "4px",
-              DEFAULT: "8px",
-              md: "12px",
-              lg: "16px",
-              xl: "20px",
-              "2xl": "24px",
-              "3xl": "32px",
-              full: "9999px",
-              button: "8px",
-            },
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Elite Enterprises</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary: "#f7941d", secondary: "#333333" },
+          borderRadius: {
+            none: "0px",
+            sm: "4px",
+            DEFAULT: "8px",
+            md: "12px",
+            lg: "16px", 
+            xl: "20px",
+            "2xl": "24px",
+            "3xl": "32px",
+            full: "9999px",
+            button: "8px",
           },
         },
-      };
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
-    />
-    <style>
-      :where([class^="ri-"])::before {
-        content: "\f3c2";
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
+  <style>
+    :where([class^="ri-"])::before {
+      content: "\f3c2";
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+    }
+
+    .hero-section {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)),
+        url("https://readdy.ai/api/search-image?query=professional%20business%20office%20environment%20with%20modern%20architecture%2C%20business%20people%20having%20a%20meeting%2C%20warm%20lighting%2C%20professional%20atmosphere%2C%20high-quality%20corporate%20setting%2C%20clean%20and%20minimalist%20design%2C%20soft%20natural%20light%20coming%20through%20large%20windows&width=1920&height=800&seq=contact-hero&orientation=landscape");
+      background-size: cover;
+      background-position: center;
+    }
+
+    input,
+    textarea {
+      outline: none;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .custom-checkbox {
+      position: relative;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-color: white;
+      border: 2px solid #e5e7eb;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .custom-checkbox.checked {
+      background-color: #f7941d;
+      border-color: #f7941d;
+    }
+
+    .custom-checkbox.checked::after {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+
+    .fade-in {
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
       }
-      body {
-        font-family: "Poppins", sans-serif;
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
       }
-      .hero-section {
-        background-image: linear-gradient(
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)
-          ),
-          url("https://readdy.ai/api/search-image?query=professional%20business%20office%20environment%20with%20modern%20architecture%2C%20business%20people%20having%20a%20meeting%2C%20warm%20lighting%2C%20professional%20atmosphere%2C%20high-quality%20corporate%20setting%2C%20clean%20and%20minimalist%20design%2C%20soft%20natural%20light%20coming%20through%20large%20windows&width=1920&height=800&seq=contact-hero&orientation=landscape");
-        background-size: cover;
-        background-position: center;
-      }
-      input,
-      textarea {
-        outline: none;
-      }
-      input[type="number"]::-webkit-inner-spin-button,
-      input[type="number"]::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-      }
-      .custom-checkbox {
-        position: relative;
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        background-color: white;
-        border: 2px solid #e5e7eb;
-        border-radius: 4px;
-        transition: all 0.2s;
-      }
-      .custom-checkbox.checked {
-        background-color: #f7941d;
-        border-color: #f7941d;
-      }
-      .custom-checkbox.checked::after {
-        content: "";
-        position: absolute;
-        left: 6px;
-        top: 2px;
-        width: 5px;
-        height: 10px;
-        border: solid white;
-        border-width: 0 2px 2px 0;
-        transform: rotate(45deg);
-      }
-      .fade-in {
-        animation: fadeIn 1.5s ease-in;
-      }
-      @keyframes fadeIn {
-        0% {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-       body {
-        text-align: justify;
-        
-      }
-    </style>
-  </head>
-  <body class="min-h-screen bg-white">
- <!-- <script>
+    }
+
+    body {
+      text-align: justify;
+
+    }
+  </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WWL6ZGGZ05"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-WWL6ZGGZ05'); 
+  </script>
+</head>
+
+<body class="min-h-screen bg-white">
+  <!-- <script>
       window.addEventListener("DOMContentLoaded", () => {
         const imageElement = document.querySelectorAll(".myImage");
         // Save the previous URL for tracking
@@ -164,138 +175,89 @@
         }
       });
     </script> -->
-    <!-- Navigation Bar -->
-    <header
-      class="fixed top-0 left-0 w-full bg-gradient-to-b from-gray-50 to-white shadow-lg z-50 rounded-b-2xl"
-    >
-      <div
-        class="container mx-auto px-6 py-4 flex items-center justify-between"
-      >
-        <a href="" class="flex items-center url h-[60px]">
-          <!-- src="https://static.readdy.ai/image/a63ec0b6f34fb9b66d50256c348ce6a2/14473f2f2ab90e80defb244166b75318.png" -->
-          <img
-           
-            src=""
-            alt="Elite Enterprises Logo"
-            class="h-[150px] w-auto myImage"
-          />
-        </a>
-        <!-- Desktop Navigation -->
-        <nav class="hidden lg:flex items-center space-x-8">
-          <!-- <a
+  <!-- Navigation Bar -->
+  <header class="fixed top-0 left-0 w-full bg-gradient-to-b from-gray-50 to-white shadow-lg z-50 rounded-b-2xl">
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="" class="flex items-center url h-[60px]">
+        <!-- src="https://static.readdy.ai/image/a63ec0b6f34fb9b66d50256c348ce6a2/14473f2f2ab90e80defb244166b75318.png" -->
+        <img src="" alt="Elite Enterprises Logo" class="h-[150px] w-auto myImage" />
+      </a>
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center space-x-8">
+        <!-- <a
             href="/"
             class="text-gray-800 hover:text-primary transition-colors font-semibold"
             >Home</a
           > -->
-          <a
-            href="./aboutus.html"
-            class="text-gray-800 hover:text-primary transition-colors font-semibold"
-            >About Us</a
-          >
-          <a
-            href="./gallery.html"
-            class="text-gray-800 hover:text-primary transition-colors font-semibold"
-            >Gallery</a
-          >
-          <!-- <a
+        <a href="./aboutus.html" class="text-gray-800 hover:text-primary transition-colors font-semibold">About Us</a>
+        <a href="./gallery.html" class="text-gray-800 hover:text-primary transition-colors font-semibold">Gallery</a>
+        <!-- <a
             href="/services"
             class="text-gray-800 hover:text-primary transition-colors font-semibold"
             >Services</a
           > -->
-          <a
-            href="./careers.html"
-            class="text-gray-800 hover:text-primary transition-colors font-semibold"
-            >Careers</a
-          >
-          <a href="./contactus.html" class="text-primary font-semibold"
-            >Contact Us</a
-          >
-        </nav>
-        <!-- CTA Buttons -->
-        <div class="hidden lg:flex items-center space-x-5">
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeIZsEIfxR6zbsasuNOkzKV1vK_SZwNwgkVKRUK1i50LPpUPg/viewform?usp=header"
-            class="px-6 py-3 border-2 border-primary text-primary hover:bg-primary/5 transition-all font-semibold !rounded-button whitespace-nowrap"
-            >Get Started</a
-          >
-          <a
-            href="./contactus.html"
-            class="px-6 py-3 bg-primary text-white hover:bg-primary/90 transition-all font-semibold !rounded-button whitespace-nowrap shadow-md hover:shadow-lg"
-            >Contact Us</a
-          >
-        </div>
-        <!-- Mobile Menu Button -->
-        <button
-          id="mobile-menu-button"
-          class="lg:hidden w-12 h-12 flex items-center justify-center text-gray-800 hover:bg-gray-100 rounded-full transition-colors"
-        >
-          <i class="ri-menu-line ri-xl"></i>
-        </button>
+        <a href="./careers.html" class="text-gray-800 hover:text-primary transition-colors font-semibold">Careers</a>
+        <a href="./contactus.html" class="text-primary font-semibold">Contact Us</a>
+      </nav>
+      <!-- CTA Buttons -->
+      <div class="hidden lg:flex items-center space-x-5">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIZsEIfxR6zbsasuNOkzKV1vK_SZwNwgkVKRUK1i50LPpUPg/viewform?usp=header"
+          class="px-6 py-3 border-2 border-primary text-primary hover:bg-primary/5 transition-all font-semibold !rounded-button whitespace-nowrap">Get
+          Started</a>
+        <a href="./contactus.html"
+          class="px-6 py-3 bg-primary text-white hover:bg-primary/90 transition-all font-semibold !rounded-button whitespace-nowrap shadow-md hover:shadow-lg">Contact
+          Us</a>
       </div>
-      <!-- Mobile Menu -->
-      <div
-        id="mobile-menu"
-        class="hidden lg:hidden bg-white shadow-lg absolute w-full top-full"
-      >
-        <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
-          <!-- <a
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button"
+        class="lg:hidden w-12 h-12 flex items-center justify-center text-gray-800 hover:bg-gray-100 rounded-full transition-colors">
+        <i class="ri-menu-line ri-xl"></i>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white shadow-lg absolute w-full top-full">
+      <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+        <!-- <a
             href="/"
             class="text-gray-800 py-3 hover:text-primary transition-colors font-semibold"
             >Home</a
           > -->
-          <a
-            href="/aboutus.html"
-            class="text-gray-800 py-3 hover:text-primary transition-colors font-semibold"
-            >About Us</a
-          >
-          <a
-            href="/gallery.html"
-            class="text-gray-800 py-3 hover:text-primary transition-colors font-semibold"
-            >Gallery</a
-          >
-          <!-- <a
+        <a href="/aboutus.html" class="text-gray-800 py-3 hover:text-primary transition-colors font-semibold">About
+          Us</a>
+        <a href="/gallery.html"
+          class="text-gray-800 py-3 hover:text-primary transition-colors font-semibold">Gallery</a>
+        <!-- <a
             href="/services"
             class="text-gray-800 py-3 hover:text-primary transition-colors font-semibold"
             >Services</a
           > -->
-          <a
-            href="./careers.html"
-            class="text-gray-800 py-3 hover:text-primary transition-colors font-semibold"
-            >Careers</a
-          >
-          <a href="./contactus.html" class="text-primary py-3 font-semibold"
-            >Contact Us</a
-          >
-          <div class="flex flex-col space-y-4 pt-4 border-t border-gray-100">
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeIZsEIfxR6zbsasuNOkzKV1vK_SZwNwgkVKRUK1i50LPpUPg/viewform?usp=header"
-              class="px-6 py-3 border-2 border-primary text-primary text-center hover:bg-primary/5 transition-all font-semibold !rounded-button whitespace-nowrap"
-              >Get Started</a
-            >
-            <a
-              href="./contactus.htmlW"
-              class="px-6 py-3 bg-primary text-white text-center hover:bg-primary/90 transition-all font-semibold !rounded-button whitespace-nowrap shadow-md hover:shadow-lg"
-              >Contact Us</a
-            >
-          </div>
+        <a href="./careers.html"
+          class="text-gray-800 py-3 hover:text-primary transition-colors font-semibold">Careers</a>
+        <a href="./contactus.html" class="text-primary py-3 font-semibold">Contact Us</a>
+        <div class="flex flex-col space-y-4 pt-4 border-t border-gray-100">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIZsEIfxR6zbsasuNOkzKV1vK_SZwNwgkVKRUK1i50LPpUPg/viewform?usp=header"
+            class="px-6 py-3 border-2 border-primary text-primary text-center hover:bg-primary/5 transition-all font-semibold !rounded-button whitespace-nowrap">Get
+            Started</a>
+          <a href="./contactus.htmlW"
+            class="px-6 py-3 bg-primary text-white text-center hover:bg-primary/90 transition-all font-semibold !rounded-button whitespace-nowrap shadow-md hover:shadow-lg">Contact
+            Us</a>
         </div>
       </div>
-    </header>
-    <!-- Hero Section -->
-    <section
-      class="hero-section w-full h-[500px] flex items-center justify-center mt-16"
-    >
-      <div class="container mx-auto px-4 text-center fade-in">
-        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
-          Let's Work Together
-        </h1>
-        <p class="text-xl text-white max-w-2xl mx-auto">
-          Have a project in mind or a question? We'd love to hear from you.
-        </p>
-      </div>
-    </section>
-    <!-- Contact Form Section -->
-    <!-- <section class="py-16 bg-gray-50">
+    </div>
+  </header>
+  <!-- Hero Section -->
+  <section class="hero-section w-full h-[500px] flex items-center justify-center mt-16">
+    <div class="container mx-auto px-4 text-center fade-in">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        Let's Work Together
+      </h1>
+      <p class="text-xl text-white max-w-2xl mx-auto">
+        Have a project in mind or a question? We'd love to hear from you.
+      </p>
+    </div>
+  </section>
+  <!-- Contact Form Section -->
+  <!-- <section class="py-16 bg-gray-50">
       <div class="container mx-auto px-4">
         <div
           class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden"
@@ -429,346 +391,259 @@
         </div>
       </div>
     </section> -->
-    <!-- Contact Information Section -->
-    <section class="py-16 bg-white">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">
-          Contact Information
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-8  md:max-w-5xl xl:max-w-[90rem] mx-auto">
-          <!-- Address Card -->
-          <div
-            class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow"
-          >
-            <div
-              class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-primary/10 rounded-full"
-            >
-              <i class="ri-map-pin-line ri-xl text-primary"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-2">Talegaon Office</h3>
-            <p class="text-gray-600">Elite Enterprises</p>
-            <p class="text-gray-600">Shop 2C, Shanti City Center, Talegaon Station Rd, Rajgurav Colony, Talegaon Dabhade, Maharashtra 410507</p>
-            <a
-              href="https://maps.app.goo.gl/b5MnUdci5QJzKrNRA"
-              target="_blank"
-              class="inline-block mt-4 text-primary hover:underline"
-              >View on Map</a
-            >
+  <!-- Contact Information Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">
+        Contact Information
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-8  md:max-w-5xl xl:max-w-[90rem] mx-auto">
+        <!-- Address Card -->
+        <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-primary/10 rounded-full">
+            <i class="ri-map-pin-line ri-xl text-primary"></i>
           </div>
-          <div
-            class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow"
-          >
-            <div
-              class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-primary/10 rounded-full"
-            >
-              <i class="ri-map-pin-line ri-xl text-primary"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-2">Moshi Office</h3>
-            <p class="text-gray-600">Elite Enterprises</p>
-            <p class="text-gray-600">Shop B-8, First Floor, Pravia Business Center, Spine Rd, opposite RTO, Jal Vayu Vihar, Sector No. 6, PCMC, Pimpri-Chinchwad, Maharashtra 412105</p>
-            <a
-              href="https://maps.app.goo.gl/cGXFRbYQrz9AmanB6"
-              target="_blank"
-              class="inline-block mt-4 text-primary hover:underline"
-              >View on Map</a
-            >
+          <h3 class="text-xl font-semibold mb-2">Talegaon Office</h3>
+          <p class="text-gray-600">Elite Enterprises</p>
+          <p class="text-gray-600">Shop 2C, Shanti City Center, Talegaon Station Rd, Rajgurav Colony, Talegaon Dabhade,
+            Maharashtra 410507</p>
+          <a href="https://maps.app.goo.gl/b5MnUdci5QJzKrNRA" target="_blank"
+            class="inline-block mt-4 text-primary hover:underline">View on Map</a>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-primary/10 rounded-full">
+            <i class="ri-map-pin-line ri-xl text-primary"></i>
           </div>
-          <!-- Phone Card -->
-          <div
-            class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow"
-          >
-            <div
-              class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-primary/10 rounded-full"
-            >
-              <i class="ri-phone-line ri-xl text-primary"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-2">Phone Number</h3>
-            <p class="text-gray-600">Moshi Office</p>
-            <a href="tel:+9102067878078" class="text-primary hover:underline"
-              >+91 02067878078</a
-            >
-            <p class="text-gray-600 mt-2">Talegaon Office</p>
-            <a href="tel:+9102114 222500
-             " class="text-primary hover:underline"
-              >+91 02114 222500
-            </a
-            >
-            <p class="text-gray-600 mt-2">Ajinkya Malkar</p>
-            <a href="tel:+919970070415
-             " class="text-primary hover:underline"
-              >+91 9970070415
-             </a
-            >
+          <h3 class="text-xl font-semibold mb-2">Moshi Office</h3>
+          <p class="text-gray-600">Elite Enterprises</p>
+          <p class="text-gray-600">Shop B-8, First Floor, Pravia Business Center, Spine Rd, opposite RTO, Jal Vayu
+            Vihar, Sector No. 6, PCMC, Pimpri-Chinchwad, Maharashtra 412105</p>
+          <a href="https://maps.app.goo.gl/cGXFRbYQrz9AmanB6" target="_blank"
+            class="inline-block mt-4 text-primary hover:underline">View on Map</a>
+        </div>
+        <!-- Phone Card -->
+        <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-primary/10 rounded-full">
+            <i class="ri-phone-line ri-xl text-primary"></i>
           </div>
-          <!-- Email Card -->
-          <div
-            class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow"
-          >
-            <div
-              class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-primary/10 rounded-full"
-            >
+          <h3 class="text-xl font-semibold mb-2">Phone Number</h3>
+          <p class="text-gray-600">Moshi Office</p>
+          <a href="tel:+9102067878078" class="text-primary hover:underline">+91 02067878078</a>
+          <p class="text-gray-600 mt-2">Talegaon Office</p>
+          <a href="tel:+9102114 222500
+             " class="text-primary hover:underline">+91 02114 222500
+          </a>
+          <p class="text-gray-600 mt-2">Ajinkya Malkar</p>
+          <a href="tel:+919970070415
+             " class="text-primary hover:underline">+91 9970070415
+          </a>
+        </div>
+        <!-- Email Card -->
+        <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-primary/10 rounded-full">
             <i class="ri-mail-line ri-xl text-primary"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-2">Email Address</h3>
-            <p class="text-gray-600">General Inquiries</p>
-            <a
-              href="mailto:elitestructcon@gmail.com"
-              class="text-primary hover:underline"
-              >elitestructcon@gmail.com</a
-            >
-            <p class="text-gray-600 mt-2">Support Team</p>
-            <a
-              href="mailto:support@eliteenterprises.com"
-              class="text-primary hover:underline"
-              >support@eliteenterprises.com</a
-            >
           </div>
+          <h3 class="text-xl font-semibold mb-2">Email Address</h3>
+          <p class="text-gray-600">General Inquiries</p>
+          <a href="mailto:elitestructcon@gmail.com" class="text-primary hover:underline">elitestructcon@gmail.com</a>
+          <p class="text-gray-600 mt-2">Support Team</p>
+          <a href="mailto:support@eliteenterprises.com"
+            class="text-primary hover:underline">support@eliteenterprises.com</a>
         </div>
       </div>
-    </section>
-    <!-- Map Section -->
-   </section>
-<!-- Map Section 1 -->
-
-<section class="py-16 bg-gray-50">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-8">Find Us</h2>
-    <div class="flex flex-col sm:flex-row  max-w-5xl mx-auto gap-4">
-      <div class="w-full md:w-1/2 rounded-lg overflow-hidden shadow-md">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3591.6089504100414!2d73.67857599999999!3d18.728085999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTjCsDQzJzQxLjEiTiA3M8KwNDAnNDIuOSJF!5e1!3m2!1sen!2sin!4v1754803127920!5m2!1sen!2sin"
-          width="100%" 
-          height="400" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-
-      <div class="w-full md:w-1/2 rounded-lg overflow-hidden shadow-md">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3263.3768105019076!2d73.84213167441831!3d18.654965565056724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c7f783a91495%3A0x7febb5e949ddc535!2sPrivia%20Business%20Centre%20Pune!5e1!3m2!1sen!2sin!4v1751272769949!5m2!1sen!2sin"
-          width="100%" 
-          height="400" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
+  <!-- Map Section -->
+  </section>
+  <!-- Map Section 1 -->
 
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">Find Us</h2>
+      <div class="flex flex-col sm:flex-row  max-w-5xl mx-auto gap-4">
+        <div class="w-full md:w-1/2 rounded-lg overflow-hidden shadow-md">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3591.6089504100414!2d73.67857599999999!3d18.728085999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTjCsDQzJzQxLjEiTiA3M8KwNDAnNDIuOSJF!5e1!3m2!1sen!2sin!4v1754803127920!5m2!1sen!2sin"
+            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
 
-    <!-- CTA Banner -->
-    <section class="py-16 bg-primary">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold text-white mb-6">
-          Let's build something extraordinary together
-        </h2>
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSeIZsEIfxR6zbsasuNOkzKV1vK_SZwNwgkVKRUK1i50LPpUPg/viewform?usp=header"
-          class="inline-block px-8 py-3 bg-transparent border-2 border-white text-white font-medium hover:bg-white hover:text-primary transition-colors !rounded-button whitespace-nowrap"
-          >Share Your Project</a
-        >
+        <div class="w-full md:w-1/2 rounded-lg overflow-hidden shadow-md">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3263.3768105019076!2d73.84213167441831!3d18.654965565056724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c7f783a91495%3A0x7febb5e949ddc535!2sPrivia%20Business%20Centre%20Pune!5e1!3m2!1sen!2sin!4v1751272769949!5m2!1sen!2sin"
+            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
       </div>
-    </section>
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-wrap justify-between gap-y-10 mb-12 text-left">
-          <!-- Company Info -->
-          <div class="w-full sm:w-[48%] lg:w-[23%] max-w-[280px]">
-            <h3 class="text-xl mb-2">
-              <a href="" class="url">
+    </div>
+  </section>
 
-                <img
-                id="footerImage"
-                src=""
-                alt="Elite Geotech & NDT Logo"
-                class="h-[150px] w-auto -mt-[2.5rem] -mb-12 "
-                />
-              </a>
-            </h3>
-            <p class="text-gray-400 mb-4">
-              Building excellence since 2010. We specialize in construction,
-              architecture, and interior design solutions for residential and
-              commercial projects.
-            </p>
-            <div class="flex space-x-4">
-              <a
-                href="#"
-                class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors"
-              >
-                <i class="ri-facebook-fill"></i>
-              </a>
-              <a
-                href="#"
-                class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors"
-              >
-                <i class="ri-twitter-fill"></i>
-              </a>
-              <a
-                href="#"
-                class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors"
-              >
-                <i class="ri-instagram-line"></i>
-              </a>
-              <a
-                href="#"
-                class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors"
-              >
-                <i class="ri-linkedin-fill"></i>
-              </a>
-            </div>
+
+  <!-- CTA Banner -->
+  <section class="py-16 bg-primary">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-white mb-6">
+        Let's build something extraordinary together
+      </h2>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIZsEIfxR6zbsasuNOkzKV1vK_SZwNwgkVKRUK1i50LPpUPg/viewform?usp=header"
+        class="inline-block px-8 py-3 bg-transparent border-2 border-white text-white font-medium hover:bg-white hover:text-primary transition-colors !rounded-button whitespace-nowrap">Share
+        Your Project</a>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap justify-between gap-y-10 mb-12 text-left">
+        <!-- Company Info -->
+        <div class="w-full sm:w-[48%] lg:w-[23%] max-w-[280px]">
+          <h3 class="text-xl mb-2">
+            <a href="" class="url">
+
+              <img id="footerImage" src="" alt="Elite Geotech & NDT Logo"
+                class="h-[150px] w-auto -mt-[2.5rem] -mb-12 " />
+            </a>
+          </h3>
+          <p class="text-gray-400 mb-4">
+            Building excellence since 2010. We specialize in construction,
+            architecture, and interior design solutions for residential and
+            commercial projects.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#"
+              class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+              <i class="ri-facebook-fill"></i>
+            </a>
+            <a href="#"
+              class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+              <i class="ri-twitter-fill"></i>
+            </a>
+            <a href="#"
+              class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+              <i class="ri-instagram-line"></i>
+            </a>
+            <a href="#"
+              class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+              <i class="ri-linkedin-fill"></i>
+            </a>
           </div>
-          <!-- Quick Links -->
-          <div class="w-full lg:w-[23%] max-w-[300px] sm:text-center">
-            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul class="space-y-2">
-              <!-- <li>
+        </div>
+        <!-- Quick Links -->
+        <div class="w-full lg:w-[23%] max-w-[300px] sm:text-center">
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <!-- <li>
                 <a
                   href="/"
                   class="text-gray-400 hover:text-primary transition-colors"
                   >Home</a
                 >
               </li> -->
-              <li>
-                <a
-                  href="aboutus.html"
-                  class="text-gray-400 hover:text-primary transition-colors"
-                  >About Us</a
-                >
-              </li>
-             <!-- <li>
+            <li>
+              <a href="aboutus.html" class="text-gray-400 hover:text-primary transition-colors">About Us</a>
+            </li>
+            <!-- <li>
                 <a
                   href="/services"
                   class="text-gray-400 hover:text-primary transition-colors"
                   >Services</a
                 >
               </li>-->
-              <li>
-                <a
-                  href="gallery.html"
-                  class="text-gray-400 hover:text-primary transition-colors"
-                  >Project Gallery</a
-                >
-              </li>
-              <li>
-                <a
-                  href="careers.html"
-                  class="text-gray-400 hover:text-primary transition-colors"
-                  >Careers</a
-                >
-              </li>
-              <li>
-                <a
-                  href="contactus.html"
-                  class="text-gray-400 hover:text-primary transition-colors"
-                  >Contact Us</a
-                >
-              </li>
-            </ul>
-          </div>
-          <!-- Services -->
-          <div class="w-full sm:w-[48%] lg:w-[23%] max-w-[240px]">
-            <h3 class="text-lg font-semibold mb-4">Our Services</h3>
-            <ul class="space-y-2">
-              <li>
-                <a
-                  href="#"
-                  class="text-gray-400 hover:text-primary transition-colors"
-                  >Soil Bearing Capacity Test</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="text-gray-400 hover:text-primary transition-colors"
-                  >Site Reports & Recommendations</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="text-gray-400 hover:text-primary transition-colors"
-                  >Non Destructive Test</a
-                >
-              </li>
-              <!--<li>
+            <li>
+              <a href="gallery.html" class="text-gray-400 hover:text-primary transition-colors">Project Gallery</a>
+            </li>
+            <li>
+              <a href="careers.html" class="text-gray-400 hover:text-primary transition-colors">Careers</a>
+            </li>
+            <li>
+              <a href="contactus.html" class="text-gray-400 hover:text-primary transition-colors">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <!-- Services -->
+        <div class="w-full sm:w-[48%] lg:w-[23%] max-w-[240px]">
+          <h3 class="text-lg font-semibold mb-4">Our Services</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="#" class="text-gray-400 hover:text-primary transition-colors">Soil Bearing Capacity Test</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-primary transition-colors">Site Reports & Recommendations</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-primary transition-colors">Non Destructive Test</a>
+            </li>
+            <!--<li>
                 <a
                   href="#"
                   class="text-gray-400 hover:text-primary transition-colors"
                   >Renovation Services</a
                 >
               </li>-->
-              <li>
-                <a
-                  href="#"
-                  class="text-gray-400 hover:text-primary transition-colors"
-                  >Destructive Test</a
-                >
-              </li>
-              <!--<li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-primary transition-colors">Destructive Test</a>
+            </li>
+            <!--<li>
                 <a
                   href="#"
                   class="text-gray-400 hover:text-primary transition-colors"
                   >Project Management</a
                 >
               </li>-->
-            </ul>
-          </div>
+          </ul>
+        </div>
 
 
-<!-- Contact Info-->
-  <div class="w-full sm:w-[48%] lg:w-[23%] max-w-[260px]">
-            <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
-            <ul class="space-y-3">
-              <li class="flex items-start">
-                <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
-                  <i class="ri-map-pin-line text-primary"></i>
+        <!-- Contact Info-->
+        <div class="w-full sm:w-[48%] lg:w-[23%] max-w-[260px]">
+          <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+                <i class="ri-map-pin-line text-primary"></i>
+              </div>
+              <span class="text-gray-400">Shop 2C, Shanti City Center, Talegaon Station Rd, Rajgurav Colony, Talegaon
+                Dabhade, Maharashtra 410507</span>
+            </li>
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+                <i class="ri-map-pin-line text-primary"></i>
+              </div>
+              <span class="text-gray-400">Shop B-8, First Floor, Pravia Business Center, Spine Rd, opposite RTO, Jal
+                Vayu Vihar, Sector No. 6, PCMC, Pimpri-Chinchwad, Maharashtra 412105</span>
+            </li>
+            <li class="flex flex-col gap-2 items-start">
+              <div class="flex items-start">
+                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
+                  <i class="ri-phone-line text-primary"></i>
                 </div>
-                <span class="text-gray-400"
-                  >Shop 2C, Shanti City Center, Talegaon Station Rd, Rajgurav Colony, Talegaon Dabhade, Maharashtra 410507</span
-                >
-              </li>
-              <li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
-<i class="ri-map-pin-line text-primary"></i>
-</div>
-<span class="text-gray-400">Shop B-8, First Floor, Pravia Business Center, Spine Rd, opposite RTO, Jal Vayu Vihar, Sector No. 6, PCMC, Pimpri-Chinchwad, Maharashtra 412105</span>
-</li>
-              <li class="flex flex-col gap-2 items-start">
-  <div class="flex items-start">
-    <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
-      <i class="ri-phone-line text-primary"></i>
-    </div>
-    <span class="text-gray-400">+91 9970070415</span>
-  </div>
-  <div class="flex items-start">
-    <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
-      <i class="ri-phone-line text-primary"></i>
-    </div>
-    <span class="text-gray-400">+91 02067878078</span>
-  </div>
-  <div class="flex items-start">
-    <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
-      <i class="ri-phone-line text-primary"></i>
-    </div>
-    <span class="text-gray-400">+91 02114 222500</span>
-  </div>
-</li>
-              <li class="flex items-center">
-                <div class="w-5 h-5 flex items-center justify-center mr-2">
-                  <i class="ri-mail-line text-primary"></i>
+                <span class="text-gray-400">+91 9970070415</span>
+              </div>
+              <div class="flex items-start">
+                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
+                  <i class="ri-phone-line text-primary"></i>
                 </div>
-                <span class="text-gray-400">careers@eliteenterprises.com</span>
-              </li>
-            </ul>
-          </div>
-          <!-- Newsletter -->
-          <!-- <div>
+                <span class="text-gray-400">+91 02067878078</span>
+              </div>
+              <div class="flex items-start">
+                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
+                  <i class="ri-phone-line text-primary"></i>
+                </div>
+                <span class="text-gray-400">+91 02114 222500</span>
+              </div>
+            </li>
+            <li class="flex items-center">
+              <div class="w-5 h-5 flex items-center justify-center mr-2">
+                <i class="ri-mail-line text-primary"></i>
+              </div>
+              <span class="text-gray-400">careers@eliteenterprises.com</span>
+            </li>
+          </ul>
+        </div>
+        <!-- Newsletter -->
+        <!-- <div>
             <h3 class="text-lg font-semibold mb-4">Subscribe to Newsletter</h3>
             <p class="text-gray-400 mb-4">
               Stay updated with our latest projects and news.
@@ -788,114 +663,100 @@
               </button>
             </form>
           </div> -->
-        </div>
-        <div
-          class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center"
-        >
-          <p class="text-gray-400 text-sm">
-            © 2025 Elite Enterprises. All rights reserved.
-          </p>
-          <div class="flex space-x-4 mt-4 md:mt-0">
-            <a
-              href="#"
-              class="text-gray-400 text-sm hover:text-primary transition-colors"
-              >Privacy Policy</a
-            >
-            <a
-              href="#"
-              class="text-gray-400 text-sm hover:text-primary transition-colors"
-              >Terms of Service</a
-            >
-            <a
-              href="#"
-              class="text-gray-400 text-sm hover:text-primary transition-colors"
-              >Cookie Policy</a
-            >
-          </div>
+      </div>
+      <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm">
+          © 2025 Elite Enterprises. All rights reserved.
+        </p>
+        <div class="flex space-x-4 mt-4 md:mt-0">
+          <a href="#" class="text-gray-400 text-sm hover:text-primary transition-colors">Privacy Policy</a>
+          <a href="#" class="text-gray-400 text-sm hover:text-primary transition-colors">Terms of Service</a>
+          <a href="#" class="text-gray-400 text-sm hover:text-primary transition-colors">Cookie Policy</a>
         </div>
       </div>
-    </footer>
-    <script id="mobile-menu-script">
-      document.addEventListener("DOMContentLoaded", function () {
-        const mobileMenuButton = document.getElementById("mobile-menu-button");
-        const mobileMenu = document.getElementById("mobile-menu");
-        mobileMenuButton.addEventListener("click", function () {
-          mobileMenu.classList.toggle("hidden");
-          // Toggle icon between menu and close
-          const icon = mobileMenuButton.querySelector("i");
-          if (icon.classList.contains("ri-menu-line")) {
-            icon.classList.remove("ri-menu-line");
-            icon.classList.add("ri-close-line");
-          } else {
-            icon.classList.remove("ri-close-line");
-            icon.classList.add("ri-menu-line");
-          }
-        });
+    </div>
+  </footer>
+  <script id="mobile-menu-script">
+    document.addEventListener("DOMContentLoaded", function () {
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      mobileMenuButton.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+        // Toggle icon between menu and close
+        const icon = mobileMenuButton.querySelector("i");
+        if (icon.classList.contains("ri-menu-line")) {
+          icon.classList.remove("ri-menu-line");
+          icon.classList.add("ri-close-line");
+        } else {
+          icon.classList.remove("ri-close-line");
+          icon.classList.add("ri-menu-line");
+        }
       });
-    </script>
-    <script id="form-handling-script">
-      document.addEventListener("DOMContentLoaded", function () {
-        // Custom checkbox handling
-        const checkbox = document.getElementById("privacy-checkbox");
-        const checkboxInput = document.getElementById("privacy");
-        checkbox.addEventListener("click", function () {
-          this.classList.toggle("checked");
-          checkboxInput.checked = this.classList.contains("checked");
-        });
-        // File upload handling
-        const fileUpload = document.getElementById("file-upload");
-        const fileList = document.getElementById("file-list");
-        fileUpload.addEventListener("change", function () {
-          fileList.innerHTML = "";
-          if (this.files.length > 0) {
-            for (let i = 0; i < this.files.length; i++) {
-              const file = this.files[i];
-              const fileItem = document.createElement("div");
-              fileItem.className = "flex items-center justify-between text-sm";
-              const fileInfo = document.createElement("div");
-              fileInfo.className = "flex items-center";
-              const fileIcon = document.createElement("div");
-              fileIcon.className =
-                "w-4 h-4 flex items-center justify-center text-primary mr-2";
-              fileIcon.innerHTML = '<i class="ri-file-line"></i>';
-              const fileName = document.createElement("span");
-              fileName.className = "text-gray-700";
-              fileName.textContent = file.name;
-              const fileSize = document.createElement("span");
-              fileSize.className = "text-gray-500 ml-2";
-              fileSize.textContent = formatFileSize(file.size);
-              const removeButton = document.createElement("button");
-              removeButton.className = "text-gray-500 hover:text-red-500";
-              removeButton.innerHTML = '<i class="ri-close-line"></i>';
-              removeButton.type = "button";
-              removeButton.dataset.index = i;
-              fileInfo.appendChild(fileIcon);
-              fileInfo.appendChild(fileName);
-              fileInfo.appendChild(fileSize);
-              fileItem.appendChild(fileInfo);
-              fileItem.appendChild(removeButton);
-              fileList.appendChild(fileItem);
-            }
+    });
+  </script>
+  <script id="form-handling-script">
+    document.addEventListener("DOMContentLoaded", function () {
+      // Custom checkbox handling
+      const checkbox = document.getElementById("privacy-checkbox");
+      const checkboxInput = document.getElementById("privacy");
+      checkbox.addEventListener("click", function () {
+        this.classList.toggle("checked");
+        checkboxInput.checked = this.classList.contains("checked");
+      });
+      // File upload handling
+      const fileUpload = document.getElementById("file-upload");
+      const fileList = document.getElementById("file-list");
+      fileUpload.addEventListener("change", function () {
+        fileList.innerHTML = "";
+        if (this.files.length > 0) {
+          for (let i = 0; i < this.files.length; i++) {
+            const file = this.files[i];
+            const fileItem = document.createElement("div");
+            fileItem.className = "flex items-center justify-between text-sm";
+            const fileInfo = document.createElement("div");
+            fileInfo.className = "flex items-center";
+            const fileIcon = document.createElement("div");
+            fileIcon.className =
+              "w-4 h-4 flex items-center justify-center text-primary mr-2";
+            fileIcon.innerHTML = '<i class="ri-file-line"></i>';
+            const fileName = document.createElement("span");
+            fileName.className = "text-gray-700";
+            fileName.textContent = file.name;
+            const fileSize = document.createElement("span");
+            fileSize.className = "text-gray-500 ml-2";
+            fileSize.textContent = formatFileSize(file.size);
+            const removeButton = document.createElement("button");
+            removeButton.className = "text-gray-500 hover:text-red-500";
+            removeButton.innerHTML = '<i class="ri-close-line"></i>';
+            removeButton.type = "button";
+            removeButton.dataset.index = i;
+            fileInfo.appendChild(fileIcon);
+            fileInfo.appendChild(fileName);
+            fileInfo.appendChild(fileSize);
+            fileItem.appendChild(fileInfo);
+            fileItem.appendChild(removeButton);
+            fileList.appendChild(fileItem);
           }
-        });
-        // Remove file from list (visual only)
-        fileList.addEventListener("click", function (e) {
-          if (e.target.closest("button")) {
-            e.target.closest("div.flex").remove();
-          }
-        });
-        // Form submission
-        const contactForm = document.getElementById("contact-form");
-        contactForm.addEventListener("submit", function (e) {
-          e.preventDefault();
-          // Validate form
-          if (contactForm.checkValidity()) {
-            // Show success message
-            const formData = new FormData(contactForm);
-            // Create success message
-            const successMessage = document.createElement("div");
-            successMessage.className = "bg-green-50 p-4 rounded-lg mt-6";
-            successMessage.innerHTML = `
+        }
+      });
+      // Remove file from list (visual only)
+      fileList.addEventListener("click", function (e) {
+        if (e.target.closest("button")) {
+          e.target.closest("div.flex").remove();
+        }
+      });
+      // Form submission
+      const contactForm = document.getElementById("contact-form");
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        // Validate form
+        if (contactForm.checkValidity()) {
+          // Show success message
+          const formData = new FormData(contactForm);
+          // Create success message
+          const successMessage = document.createElement("div");
+          successMessage.className = "bg-green-50 p-4 rounded-lg mt-6";
+          successMessage.innerHTML = `
       <div class="flex">
       <div class="flex-shrink-0">
       <div class="w-5 h-5 flex items-center justify-center text-green-500">
@@ -910,88 +771,89 @@
       </div>
       </div>
       `;
-            // Replace form with success message
-            contactForm.innerHTML = "";
-            contactForm.appendChild(successMessage);
-          }
-        });
-        // Helper function to format file size
-        function formatFileSize(bytes) {
-          if (bytes === 0) return "0 Bytes";
-          const k = 1024;
-          const sizes = ["Bytes", "KB", "MB", "GB"];
-          const i = Math.floor(Math.log(bytes) / Math.log(k));
-          return (
-            parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i]
-          );
+          // Replace form with success message
+          contactForm.innerHTML = "";
+          contactForm.appendChild(successMessage);
         }
       });
-    </script>
-     <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const imageElement = document.querySelectorAll(".myImage");
-        const footerImage =  document.querySelector("#footerImage")
-        // Save the previous URL for tracking
-        const previousUrl = document.referrer; // gives you the URL of the page the user came from
+      // Helper function to format file size
+      function formatFileSize(bytes) {
+        if (bytes === 0) return "0 Bytes";
+        const k = 1024;
+        const sizes = ["Bytes", "KB", "MB", "GB"];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return (
+          parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i]
+        );
+      }
+    });
+  </script>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const imageElement = document.querySelectorAll(".myImage");
+      const footerImage = document.querySelector("#footerImage")
+      // Save the previous URL for tracking
+      const previousUrl = document.referrer; // gives you the URL of the page the user came from
       let base = localStorage.getItem("previousPage");
       console.log(base);
       const links = document.querySelectorAll(".url");
       links.forEach((link) => {
         link.href = base;
       });
-        const url = localStorage.getItem("myImage");
-        const footer = localStorage.getItem("footer")
-        const params = new URLSearchParams(window.location.search);
-        const fromPage = params.get("from");
-        if (fromPage === "geotech") {
-          let url =
-            "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fgeotech.png?alt=media&token=0a632c2d-43ba-45b5-a60a-6b528730f14f";
-          let footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fgeotech%20white.png?alt=media&token=cf2a1167-4c9c-437e-8fa9-1d6898dab70a"
-          imageElement.forEach((img) => {
-            img.src = url;
-          });
-          footerImage.src = footer;
-          if (previousUrl) {
-            localStorage.setItem("previousPage", previousUrl);
-            console.log("Previous URL:", previousUrl);
-          }
-          localStorage.setItem("myImage", url);
-          localStorage.setItem("footer", footer);
-        } else if (fromPage === "studio") {
-          let url =
-            "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fstudio.png?alt=media&token=cb1eaca5-28c0-4730-a9db-92537a07823e";
-          let footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fstudio%20white.png?alt=media&token=8a25caa3-75f4-42b6-b354-b10d35e64f07"
-          imageElement.forEach((img) => {
-            img.src = url;
-          });
-          footerImage.src = footer;
-          if (previousUrl) {
-            localStorage.setItem("previousPage", previousUrl);
-            console.log("Previous URL:", previousUrl);
-          }
-          localStorage.setItem("myImage", url);
-          localStorage.setItem("footer", footer);
-        } else if (fromPage === "consult") {
-          let url =
-            "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fconsult.png?alt=media&token=b420c0a2-9d3b-4fbc-9fc2-540c0495e553";
-          let footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fconsult%20white.png?alt=media&token=3a26cd8d-5b3f-4b49-8ce2-e90cce8cccc3"
-          imageElement.forEach((img) => {
-            img.src = url;
-          });
-          footerImage.src = footer
-          if (previousUrl) {
-            localStorage.setItem("previousPage", previousUrl);
-            console.log("Previous URL:", previousUrl);
-          }
-          localStorage.setItem("myImage", url);
-          localStorage.setItem("footer", footer);
-        } else {
-          imageElement.forEach((img) => {
-            img.src = url;
-          });
-          footerImage.src = footer;
+      const url = localStorage.getItem("myImage");
+      const footer = localStorage.getItem("footer")
+      const params = new URLSearchParams(window.location.search);
+      const fromPage = params.get("from");
+      if (fromPage === "geotech") {
+        let url =
+          "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fgeotech.png?alt=media&token=0a632c2d-43ba-45b5-a60a-6b528730f14f";
+        let footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fgeotech%20white.png?alt=media&token=cf2a1167-4c9c-437e-8fa9-1d6898dab70a"
+        imageElement.forEach((img) => {
+          img.src = url;
+        });
+        footerImage.src = footer;
+        if (previousUrl) {
+          localStorage.setItem("previousPage", previousUrl);
+          console.log("Previous URL:", previousUrl);
         }
-      });
-    </script>
-  </body>
+        localStorage.setItem("myImage", url);
+        localStorage.setItem("footer", footer);
+      } else if (fromPage === "studio") {
+        let url =
+          "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fstudio.png?alt=media&token=cb1eaca5-28c0-4730-a9db-92537a07823e";
+        let footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fstudio%20white.png?alt=media&token=8a25caa3-75f4-42b6-b354-b10d35e64f07"
+        imageElement.forEach((img) => {
+          img.src = url;
+        });
+        footerImage.src = footer;
+        if (previousUrl) {
+          localStorage.setItem("previousPage", previousUrl);
+          console.log("Previous URL:", previousUrl);
+        }
+        localStorage.setItem("myImage", url);
+        localStorage.setItem("footer", footer);
+      } else if (fromPage === "consult") {
+        let url =
+          "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fconsult.png?alt=media&token=b420c0a2-9d3b-4fbc-9fc2-540c0495e553";
+        let footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fconsult%20white.png?alt=media&token=3a26cd8d-5b3f-4b49-8ce2-e90cce8cccc3"
+        imageElement.forEach((img) => {
+          img.src = url;
+        });
+        footerImage.src = footer
+        if (previousUrl) {
+          localStorage.setItem("previousPage", previousUrl);
+          console.log("Previous URL:", previousUrl);
+        }
+        localStorage.setItem("myImage", url);
+        localStorage.setItem("footer", footer);
+      } else {
+        imageElement.forEach((img) => {
+          img.src = url;
+        });
+        footerImage.src = footer;
+      }
+    });
+  </script>
+</body>
+
 </html>
