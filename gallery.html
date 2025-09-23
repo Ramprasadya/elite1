@@ -1,138 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gallery | Elite Enterprises</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
-<script src="https://cdn.tailwindcss.com/3.4.16">
-</script>
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: { primary: "#f7941d", secondary: "#4a5568" },
-      borderRadius: {
-        none: "0px",
-        sm: "4px",
-        DEFAULT: "8px",
-        md: "12px",
-        lg: "16px",
-        xl: "20px",
-        "2xl": "24px",
-        "3xl": "32px",
-        full: "9999px",
-        button: "8px",
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | Elite Enterprises</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+  <script src="https://cdn.tailwindcss.com/3.4.16">
+  </script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary: "#f7941d", secondary: "#4a5568" },
+          borderRadius: {
+            none: "0px",
+            sm: "4px",
+            DEFAULT: "8px",
+            md: "12px",
+            lg: "16px",
+            xl: "20px",
+            "2xl": "24px",
+            "3xl": "32px",
+            full: "9999px",
+            button: "8px",
+          },
+        },
       },
-    },
-  },
-};
-</script>
-<style>
-:where([class^="ri-"])::before { content: "\f3c2"; }
-body {
-font-family: 'Poppins', sans-serif;
-}
-.navbar {
-transition: all 0.3s ease;
-}
-.hero-content {
-animation: fadeIn 0.5s ease-in;
-}
-.gallery-item:hover .gallery-image {
-transform: scale(1.05);
-}
-.gallery-item:hover .gallery-overlay {
-opacity: 0.4;
-}
-.gallery-item:hover .gallery-title {
-transform: translateY(-5px);
-}
-.gallery-image {
-transition: transform 0.3s ease;
-}
-.gallery-overlay {
-transition: opacity 0.3s ease;
-opacity: 0;
-}
-.gallery-title {
-transition: transform 0.3s ease;
-}
-.spinner {
-border: 3px solid rgba(255, 255, 255, 0.3);
-border-radius: 50%;
-border-top: 3px solid #fff;
-width: 20px;
-height: 20px;
-animation: spin 1s linear infinite;
-display: none;
-}
-.load-more:hover .spinner {
-display: inline-block;
-}
-@keyframes spin {
-0% { transform: rotate(0deg); }
-100% { transform: rotate(360deg); }
-}
-@keyframes fadeIn {
-from { opacity: 0; transform: translateY(20px); }
-to { opacity: 1; transform: translateY(0); }
-}
-.mobile-menu {
-transition: max-height 0.3s ease;
-max-height: 0;
-overflow: hidden;
-}
-.mobile-menu.active {
-max-height: 500px;
-}
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
--webkit-appearance: none;
-margin: 0;
-}
- body {
-        text-align: justify;
-     
+    };
+  </script>
+  <style>
+    :where([class^="ri-"])::before {
+      content: "\f3c2";
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .navbar {
+      transition: all 0.3s ease;
+    }
+
+    .hero-content {
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    .gallery-item:hover .gallery-image {
+      transform: scale(1.05);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 0.4;
+    }
+
+    .gallery-item:hover .gallery-title {
+      transform: translateY(-5px);
+    }
+
+    .gallery-image {
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-overlay {
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    .gallery-title {
+      transition: transform 0.3s ease;
+    }
+
+    .spinner {
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top: 3px solid #fff;
+      width: 20px;
+      height: 20px;
+      animation: spin 1s linear infinite;
+      display: none;
+    }
+
+    .load-more:hover .spinner {
+      display: inline-block;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
       }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .mobile-menu {
+      transition: max-height 0.3s ease;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    .mobile-menu.active {
+      max-height: 500px;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    body {
+      text-align: justify;
+
+    }
+
+    #gallery {
+      column-count: 3;
+      /* Number of columns, adjust for screen size */
+      column-gap: 16px;
+      /* Gap between columns */
+    }
+
+    .pinterest-img {
+      width: 100%;
+      margin-bottom: 16px;
+      display: block;
+      break-inside: avoid;
+      /* Prevent images from breaking across columns */
+      border-radius: 10px;
+      /* Optional: For rounded corners */
+    }
+
+    @media (max-width: 1024px) {
       #gallery {
-  column-count: 3; /* Number of columns, adjust for screen size */
-  column-gap: 16px; /* Gap between columns */
-}
-.pinterest-img {
-  width: 100%;
-  margin-bottom: 16px;
-  display: block;
-  break-inside: avoid; /* Prevent images from breaking across columns */
-  border-radius: 10px; /* Optional: For rounded corners */
-}
-@media (max-width: 1024px) {
-  #gallery { column-count: 3; }
-}
-@media (max-width: 768px) {
-  #gallery { column-count: 2; }
-}
-@media (max-width: 640px) {
-  #gallery { column-count: 1; }
-}
-</style>
-<!-- <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script> -->
-<!-- <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js"></script> -->
+        column-count: 3;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #gallery {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 640px) {
+      #gallery {
+        column-count: 1;
+      }
+    }
+  </style>
+  <!-- <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script> -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js"></script> -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WWL6ZGGZ05"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-WWL6ZGGZ05'); 
   </script>
 </head>
+
 <body class="bg-gray-50">
- <!-- <script>
+  <!-- <script>
       window.addEventListener("DOMContentLoaded", () => {
         const imageElement = document.querySelectorAll(".myImage");
         // Save the previous URL for tracking
@@ -186,92 +234,92 @@ margin: 0;
         }
       });
     </script> -->
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
-import { getStorage, ref, listAll, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-storage.js";
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import { getStorage, ref, listAll, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-storage.js";
 
-// Firebase config
- const firebaseConfig = {
-    apiKey: "AIzaSyCMVqKVvQnJH5whw6HCccQFRmG0NqVSK3M",
-    authDomain: "projects-afdbf.firebaseapp.com",
-    projectId: "projects-afdbf",
-    storageBucket: "projects-afdbf.firebasestorage.app",
-    messagingSenderId: "856097443332",
-    appId: "1:856097443332:web:185b375aa1b7f491562f51",
-    measurementId: "G-WWL6ZGGZ05"
-  };
+    // Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyCMVqKVvQnJH5whw6HCccQFRmG0NqVSK3M",
+      authDomain: "projects-afdbf.firebaseapp.com",
+      projectId: "projects-afdbf",
+      storageBucket: "projects-afdbf.firebasestorage.app",
+      messagingSenderId: "856097443332",
+      appId: "1:856097443332:web:185b375aa1b7f491562f51",
+      measurementId: "G-WWL6ZGGZ05"
+    };
 
-const app = initializeApp(firebaseConfig);
-const storage = getStorage(app);
+    const app = initializeApp(firebaseConfig);
+    const storage = getStorage(app);
 
-const gallery = document.getElementById("gallery");
-const switches = document.querySelectorAll(".category-switch");
-const loadMoreBtn = document.getElementById("loadMoreBtn");
+    const gallery = document.getElementById("gallery");
+    const switches = document.querySelectorAll(".category-switch");
+    const loadMoreBtn = document.getElementById("loadMoreBtn");
 
-let allImages = [];
-let currentIndex = 0;
-const IMAGES_PER_LOAD = 9;
+    let allImages = [];
+    let currentIndex = 0;
+    const IMAGES_PER_LOAD = 9;
 
-async function loadImages(category) {
-  gallery.innerHTML = "";
-  allImages = [];
-  currentIndex = 0;
-  loadMoreBtn.style.display = "none"; // hide until ready
+    async function loadImages(category) {
+      gallery.innerHTML = "";
+      allImages = [];
+      currentIndex = 0;
+      loadMoreBtn.style.display = "none"; // hide until ready
 
-  const folderRef = ref(storage, `${category}/`);
-  const res = await listAll(folderRef);
+      const folderRef = ref(storage, `${category}/`);
+      const res = await listAll(folderRef);
 
-  // Fetch all image URLs first
-  const urls = await Promise.all(res.items.map(itemRef => getDownloadURL(itemRef)));
-  allImages = urls;
+      // Fetch all image URLs first
+      const urls = await Promise.all(res.items.map(itemRef => getDownloadURL(itemRef)));
+      allImages = urls;
 
-  // Show first batch
-  showNextImages();
-}
-
-function showNextImages() {
-  const nextImages = allImages.slice(currentIndex, currentIndex + IMAGES_PER_LOAD);
-  nextImages.forEach((url) => {
-    const img = document.createElement("img");
-    img.src = url;
-    img.className = "pinterest-img";
-    gallery.appendChild(img);
-  });
-
-  currentIndex += IMAGES_PER_LOAD;
-
-  // Show or hide load more button
-  if (currentIndex >= allImages.length) {
-    loadMoreBtn.style.display = "none";
-  } else {
-    loadMoreBtn.style.display = "flex";
-  }
-}
-
-// Handle switch change (single selection)
-switches.forEach((sw) => {
-  sw.addEventListener("change", () => {
-    if (sw.checked) {
-      switches.forEach((other) => {
-        if (other !== sw) other.checked = false;
-      });
-      loadImages(sw.value);
+      // Show first batch
+      showNextImages();
     }
-  });
-});
 
-// Load More button click
-loadMoreBtn.addEventListener("click", showNextImages);
+    function showNextImages() {
+      const nextImages = allImages.slice(currentIndex, currentIndex + IMAGES_PER_LOAD);
+      nextImages.forEach((url) => {
+        const img = document.createElement("img");
+        img.src = url;
+        img.className = "pinterest-img";
+        gallery.appendChild(img);
+      });
 
-// Load default category (Banglow)
-window.addEventListener("DOMContentLoaded", () => {
-  loadImages("banglow");
-});
+      currentIndex += IMAGES_PER_LOAD;
 
-</script>
+      // Show or hide load more button
+      if (currentIndex >= allImages.length) {
+        loadMoreBtn.style.display = "none";
+      } else {
+        loadMoreBtn.style.display = "flex";
+      }
+    }
+
+    // Handle switch change (single selection)
+    switches.forEach((sw) => {
+      sw.addEventListener("change", () => {
+        if (sw.checked) {
+          switches.forEach((other) => {
+            if (other !== sw) other.checked = false;
+          });
+          loadImages(sw.value);
+        }
+      });
+    });
+
+    // Load More button click
+    loadMoreBtn.addEventListener("click", showNextImages);
+
+    // Load default category (Banglow)
+    window.addEventListener("DOMContentLoaded", () => {
+      loadImages("banglow");
+    });
+
+  </script>
 
 
- <!-- <script>
+  <!-- <script>
     const cloudName = " dpbiqvkhs"; // Replace with your Cloudinary cloud name
     const imageList = [
       "sample.jpg",
@@ -288,445 +336,485 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   </script> -->
 
-<!-- Navigation Bar -->
-<nav class="navbar fixed top-0 left-0 w-full bg-gradient-to-b from-gray-50 to-white rounded-b-xl shadow-sm z-50">
-<div class="container mx-auto px-6">
-<div class="flex items-center justify-between h-20 md:h-[80px]">
-<!-- Logo -->
- <a href="" class="url"> 
- <img
-         
-          src=""
-            alt="Elite Enterprises Logo"
-            class="h-[150px] w-auto myImage"
-          />
-          </a>
-<!-- Desktop Navigation -->
-<div class="hidden md:flex items-center justify-center space-x-10">
-<!-- <a href="/" class="text-gray-800 hover:text-primary transition-colors font-semibold">Home</a> -->
-<a href="./aboutus.html" class="text-gray-800 hover:text-primary transition-colors font-semibold">About Us</a>
-<a href="./gallery.html" class="text-primary font-semibold">Gallery</a>
-<!-- <a href="/services" class="text-gray-800 hover:text-primary transition-colors font-semibold">Services</a> -->
-<a href="./careers.html" class="text-gray-800 hover:text-primary transition-colors font-semibold">Careers</a>
-<a href="./contactus.html" class="text-gray-800 hover:text-primary transition-colors font-semibold">Contact Us</a>
-</div>
-<!-- Desktop CTA Buttons -->
-<div class="hidden md:flex items-center space-x-5">
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSeIZsEIfxR6zbsasuNOkzKV1vK_SZwNwgkVKRUK1i50LPpUPg/viewform?usp=header" class="border-2 border-primary text-primary px-6 py-2.5 rounded-button hover:bg-primary/5 transition-colors whitespace-nowrap font-semibold">Get Started</a>
-<button class="bg-primary text-white px-6 py-2.5 rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap font-semibold shadow-sm">Contact Us</button>
-</div>
-<!-- Mobile Menu Button -->
-<div class="md:hidden w-12 h-12 flex items-center justify-center" id="mobile-menu-button">
-<i class="ri-menu-line text-gray-800 text-2xl"></i>
-</div>
-</div>
-<!-- Mobile Menu -->
-<div class="mobile-menu md:hidden" id="mobile-menu">
-<div class="py-6 space-y-4">
-<!-- <a href="/" class="block text-gray-800 hover:text-primary transition-colors font-semibold">Home</a> -->
-<a href="/aboutus.html" class="block text-gray-800 hover:text-primary transition-colors font-semibold">About Us</a>
-<a href="/gallery.html" class="block text-primary font-semibold">Gallery</a>
-<!-- <a href="/services" class="block text-gray-800 hover:text-primary transition-colors font-semibold">Services</a> -->
-<a href="/careers.html" class="block text-gray-800 hover:text-primary transition-colors font-semibold">Careers</a>
-<a href="/contactus.html" class="block text-gray-800 hover:text-primary transition-colors font-semibold">Contact Us</a>
-<div class="flex flex-col space-y-3 pt-4">
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSeIZsEIfxR6zbsasuNOkzKV1vK_SZwNwgkVKRUK1i50LPpUPg/viewform?usp=header" class="border-2 border-primary text-primary px-6 py-2.5 rounded-button hover:bg-primary/5 transition-colors whitespace-nowrap font-semibold">Get Started</a>
-<button class="bg-primary text-white px-6 py-2.5 rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap font-semibold shadow-sm">Contact Us</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</nav>
-<!-- Hero Section -->
-<section class="relative pt-16 md:pt-20">
-<div class="absolute inset-0 bg-black/60 z-10"></div>
-<div class="relative h-[60vh] min-h-[400px]" style="background-image: url('https://readdy.ai/api/search-image?query=modern%20architectural%20construction%20site%20with%20tall%20buildings%20and%20cranes%2C%20professional%20engineering%20project%2C%20high%20quality%20architectural%20photography%2C%20dramatic%20lighting%2C%20wide%20angle%20lens%2C%20detailed%20construction%20elements&width=1600&height=900&seq=hero1&orientation=landscape'); background-size: cover; background-position: center;"></div>
-<div class="absolute inset-0 flex items-center justify-center z-20">
-<div class="hero-content text-center text-white px-6 max-w-3xl">
-<h1 class="text-4xl md:text-5xl font-bold mb-4">Our Work in Action</h1>
-<p class="text-lg md:text-xl opacity-90">Explore the projects that define our engineering excellence across Maharashtra.</p>
-</div>
-</div>
-</section>
-<!-- Gallery Grid -->
-<!-- Gallery Grid -->
-<section class="py-16 md:py-20">
-<div class="container mx-auto px-6 max-w-9xl">
-  <div class="flex flex-wrap gap-4 p-4 mb-8 w-full justify-center ">
-  <!-- Banglow -->
-  <label class="inline-flex items-center cursor-pointer">
-    <input type="checkbox" value="banglow" class="sr-only peer category-switch" checked>
-    <div class="relative w-11 h-6 bg-gray-200 rounded-full 
-                peer peer-focus:ring-4 peer-focus:ring-blue-300 
-                dark:peer-focus:ring-blue-800 dark:bg-gray-700 
-                peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full 
-                peer-checked:after:border-white after:content-[''] after:absolute 
-                after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 
-                after:border after:rounded-full after:h-5 after:w-5 after:transition-all 
-                dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600">
+  <!-- Navigation Bar -->
+  <nav class="navbar fixed top-0 left-0 w-full bg-gradient-to-b from-gray-50 to-white rounded-b-xl shadow-sm z-50">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-between h-20 md:h-[80px]">
+        <!-- Logo -->
+        <a href="" class="url">
+          <img src="" alt="Elite Enterprises Logo" class="h-[160px] w-auto myImage" />
+        </a>
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center justify-center space-x-10">
+          <!-- <a href="/" class="text-gray-800 hover:text-primary transition-colors font-semibold">Home</a> -->
+          <a href="./aboutus.html" class="text-gray-800 hover:text-primary transition-colors font-semibold">About Us</a>
+          <a href="./gallery.html" class="text-primary font-semibold">Gallery</a>
+          <!-- <a href="/services" class="text-gray-800 hover:text-primary transition-colors font-semibold">Services</a> -->
+          <a href="./careers.html" class="text-gray-800 hover:text-primary transition-colors font-semibold">Careers</a>
+          <a href="./contactus.html" class="text-gray-800 hover:text-primary transition-colors font-semibold">Contact
+            Us</a>
+        </div>
+        <!-- Desktop CTA Buttons -->
+        <div class="hidden md:flex items-center space-x-5">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIZsEIfxR6zbsasuNOkzKV1vK_SZwNwgkVKRUK1i50LPpUPg/viewform?usp=header"
+            class="border-2 border-primary text-primary px-6 py-2.5 rounded-button hover:bg-primary/5 transition-colors whitespace-nowrap font-semibold">Get
+            Started</a>
+          <button
+            class="bg-primary text-white px-6 py-2.5 rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap font-semibold shadow-sm">Contact
+            Us</button>
+        </div>
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden w-12 h-12 flex items-center justify-center" id="mobile-menu-button">
+          <i class="ri-menu-line text-gray-800 text-2xl"></i>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div class="mobile-menu md:hidden" id="mobile-menu">
+        <div class="py-6 space-y-4">
+          <!-- <a href="/" class="block text-gray-800 hover:text-primary transition-colors font-semibold">Home</a> -->
+          <a href="./aboutus.html" class="block text-gray-800 hover:text-primary transition-colors font-semibold">About
+            Us</a>
+          <a href="./gallery.html" class="block text-primary font-semibold">Gallery</a>
+          <!-- <a href="/services" class="block text-gray-800 hover:text-primary transition-colors font-semibold">Services</a> -->
+          <a href="./careers.html"
+            class="block text-gray-800 hover:text-primary transition-colors font-semibold">Careers</a>
+          <a href="./contactus.html"
+            class="block text-gray-800 hover:text-primary transition-colors font-semibold">Contact Us</a>
+          <div class="flex flex-col space-y-3 pt-4">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIZsEIfxR6zbsasuNOkzKV1vK_SZwNwgkVKRUK1i50LPpUPg/viewform?usp=header"
+              class="border-2 border-primary text-primary px-6 py-2.5 rounded-button hover:bg-primary/5 transition-colors whitespace-nowrap font-semibold">Get
+              Started</a>
+            <button
+              class="bg-primary text-white px-6 py-2.5 rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap font-semibold shadow-sm">Contact
+              Us</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Banglow</span>
-  </label>
-
-  <!-- Industry -->
-  <label class="inline-flex items-center cursor-pointer">
-    <input type="checkbox" value="building" class="sr-only peer category-switch">
-    <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 
-                dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full 
-                rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] 
-                after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border 
-                after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 
-                peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600">
     </div>
-    <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Buildings</span>
-  </label>
-  <!-- Restaurant -->
-  <label class="inline-flex items-center cursor-pointer">
-    <input type="checkbox" value="restaurant" class="sr-only peer category-switch">
-    <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 
-                dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full 
-                rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] 
-                after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border 
-                after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 
-                peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600">
+  </nav>
+  <!-- Hero Section -->
+  <section class="relative pt-16 md:pt-20">
+    <div class="absolute inset-0 bg-black/60 z-10"></div>
+    <div class="relative h-[60vh] min-h-[400px]"
+      style="background-image: url('https://readdy.ai/api/search-image?query=modern%20architectural%20construction%20site%20with%20tall%20buildings%20and%20cranes%2C%20professional%20engineering%20project%2C%20high%20quality%20architectural%20photography%2C%20dramatic%20lighting%2C%20wide%20angle%20lens%2C%20detailed%20construction%20elements&width=1600&height=900&seq=hero1&orientation=landscape'); background-size: cover; background-position: center;">
     </div>
-    <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Restaurant</span>
-  </label>
-  <!-- Shades -->
-  <label class="inline-flex items-center cursor-pointer">
-    <input type="checkbox" value="shades" class="sr-only peer category-switch">
-    <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 
-                dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full 
-                rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] 
-                after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border 
-                after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 
-                peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600">
+    <div class="absolute inset-0 flex items-center justify-center z-20">
+      <div class="hero-content text-center text-white px-6 max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Our Work in Action</h1>
+        <p class="text-lg md:text-xl opacity-90">Explore the projects that define our engineering excellence across
+          Maharashtra.</p>
+      </div>
     </div>
-    <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Shades</span>
-  </label>
-  <!-- Resort -->
-  <label class="inline-flex items-center cursor-pointer">
-    <input type="checkbox" value="resort" class="sr-only peer category-switch">
-    <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 
-                dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full 
-                rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] 
-                after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border 
-                after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 
-                peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600">
+  </section>
+  <!-- Gallery Grid -->
+  <!-- Gallery Grid -->
+  <section class="py-16 md:py-20">
+    <div class="container mx-auto px-6 max-w-9xl">
+      <div class="w-full max-w-4xl mx-auto mb-12">
+        <!-- Heading -->
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-800 mb-6 text-center">
+          Filter by Category
+        </h2>
+
+        <!-- Category Filters -->
+        <div class="flex flex-wrap gap-6 p-6 w-full justify-center bg-white dark:bg-gray-900 rounded-xl shadow-sm">
+          <!-- Banglow -->
+          <label class="inline-flex items-center cursor-pointer group">
+            <input type="checkbox" value="banglow" class="sr-only peer category-switch" checked>
+            <div class="relative w-12 h-7 bg-gray-200 rounded-full 
+                  peer peer-focus:ring-4 peer-focus:ring-blue-200 
+                  dark:peer-focus:ring-blue-800 dark:bg-gray-700 
+                  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full 
+                  peer-checked:after:border-white after:content-[''] after:absolute 
+                  after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 
+                  after:border after:rounded-full after:h-6 after:w-6 after:transition-all 
+                  dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600">
+            </div>
+            <span
+              class="ms-3 text-base font-medium text-gray-800 dark:text-gray-200 group-hover:text-blue-600 transition-colors">
+              Banglow
+            </span>
+          </label>
+
+          <!-- Buildings -->
+          <label class="inline-flex items-center cursor-pointer group">
+            <input type="checkbox" value="building" class="sr-only peer category-switch">
+            <div class="relative w-12 h-7 bg-gray-200 rounded-full 
+                  peer peer-focus:ring-4 peer-focus:ring-blue-200 
+                  dark:peer-focus:ring-blue-800 dark:bg-gray-700 
+                  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full 
+                  peer-checked:after:border-white after:content-[''] after:absolute 
+                  after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 
+                  after:border after:rounded-full after:h-6 after:w-6 after:transition-all 
+                  dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600">
+            </div>
+            <span
+              class="ms-3 text-base font-medium text-gray-800 dark:text-gray-200 group-hover:text-blue-600 transition-colors">
+              Buildings
+            </span>
+          </label>
+
+          <!-- Restaurant -->
+          <label class="inline-flex items-center cursor-pointer group">
+            <input type="checkbox" value="restaurant" class="sr-only peer category-switch">
+            <div class="relative w-12 h-7 bg-gray-200 rounded-full 
+                  peer peer-focus:ring-4 peer-focus:ring-blue-200 
+                  dark:peer-focus:ring-blue-800 dark:bg-gray-700 
+                  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full 
+                  peer-checked:after:border-white after:content-[''] after:absolute 
+                  after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 
+                  after:border after:rounded-full after:h-6 after:w-6 after:transition-all 
+                  dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600">
+            </div>
+            <span
+              class="ms-3 text-base font-medium text-gray-800 dark:text-gray-200 group-hover:text-blue-600 transition-colors">
+              Restaurant
+            </span>
+          </label>
+
+          <!-- Shades -->
+          <label class="inline-flex items-center cursor-pointer group">
+            <input type="checkbox" value="shades" class="sr-only peer category-switch">
+            <div class="relative w-12 h-7 bg-gray-200 rounded-full 
+                  peer peer-focus:ring-4 peer-focus:ring-blue-200 
+                  dark:peer-focus:ring-blue-800 dark:bg-gray-700 
+                  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full 
+                  peer-checked:after:border-white after:content-[''] after:absolute 
+                  after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 
+                  after:border after:rounded-full after:h-6 after:w-6 after:transition-all 
+                  dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600">
+            </div>
+            <span
+              class="ms-3 text-base font-medium text-gray-800 dark:text-gray-200 group-hover:text-blue-600 transition-colors">
+              Shades
+            </span>
+          </label>
+
+          <!-- Resort -->
+          <label class="inline-flex items-center cursor-pointer group">
+            <input type="checkbox" value="resort" class="sr-only peer category-switch">
+            <div class="relative w-12 h-7 bg-gray-200 rounded-full 
+                  peer peer-focus:ring-4 peer-focus:ring-blue-200 
+                  dark:peer-focus:ring-blue-800 dark:bg-gray-700 
+                  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full 
+                  peer-checked:after:border-white after:content-[''] after:absolute 
+                  after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 
+                  after:border after:rounded-full after:h-6 after:w-6 after:transition-all 
+                  dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600">
+            </div>
+            <span
+              class="ms-3 text-base font-medium text-gray-800 dark:text-gray-200 group-hover:text-blue-600 transition-colors">
+              Resort
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- class=" w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 px-4 py-8" -->
+      <div id="gallery">
+        <!-- Dynamic images will be injected here -->
+      </div>
+
+      <!-- Load More Button -->
+      <div class="mt-12 text-center">
+        <button id="loadMoreBtn"
+          class="bg-primary text-white px-6 py-3 rounded-button hover:bg-primary/90 transition-colors flex items-center justify-center mx-auto whitespace-nowrap">
+          <span>Load More</span>
+        </button>
+      </div>
     </div>
-    <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Resort</span>
-  </label>
-</div>
- <!-- class=" w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 px-4 py-8" -->
-<div id="gallery">
-  <!-- Dynamic images will be injected here -->
-</div>
-
-<!-- Load More Button -->
-<div class="mt-12 text-center">
-<button id="loadMoreBtn" class="bg-primary text-white px-6 py-3 rounded-button hover:bg-primary/90 transition-colors flex items-center justify-center mx-auto whitespace-nowrap">
-  <span>Load More</span>
-</button>
-</div>
-</div>
-<!-- Lightbox -->
-<div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden">
-<button class="absolute top-4 right-4 text-white hover:text-primary transition-colors">
-<i class="ri-close-line text-3xl"></i>
-</button>
-<button class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-primary transition-colors">
-<i class="ri-arrow-left-line text-3xl"></i>
-</button>
-<button class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-primary transition-colors">
-<i class="ri-arrow-right-line text-3xl"></i>
-</button>
-<div class="flex items-center justify-center h-full">
-<img src="" alt="Lightbox Image" class="max-h-[90vh] max-w-[90vw] object-contain">
-</div>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="bg-white py-16 md:py-20">
-<div class="container mx-auto px-6 max-w-4xl text-center">
-<h2 class="text-3xl md:text-4xl font-bold mb-8">Want to build with Elite?</h2>
-<div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6">
-<button class="bg-primary text-white px-6 py-3 rounded-button hover:bg-primary/90 transition-colors w-full md:w-auto whitespace-nowrap">Book a Consultation</button>
-<button class="border border-primary text-primary px-6 py-3 rounded-button hover:bg-primary hover:text-white transition-colors w-full md:w-auto whitespace-nowrap">Share Your Project Idea</button>
-</div>
-</div>
-</section>
-<script id="mobile-menu-script">
-document.addEventListener("DOMContentLoaded", function () {
-  const mobileMenuButton = document.getElementById("mobile-menu-button");
-  const mobileMenu = document.getElementById("mobile-menu");
-  mobileMenuButton.addEventListener("click", function () {
-    mobileMenu.classList.toggle("active");
-    const icon = mobileMenuButton.querySelector("i");
-    if (mobileMenu.classList.contains("active")) {
-      icon.classList.remove("ri-menu-line");
-      icon.classList.add("ri-close-line");
-    } else {
-      icon.classList.remove("ri-close-line");
-      icon.classList.add("ri-menu-line");
-    }
-  });
-});
-</script>
-<script id="gallery-script">
-document.addEventListener("DOMContentLoaded", function () {
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = lightbox.querySelector("img");
-  const galleryItems = document.querySelectorAll(".gallery-item img");
-  const closeBtn = lightbox.querySelector(".ri-close-line").parentElement;
-  const prevBtn = lightbox.querySelector(".ri-arrow-left-line").parentElement;
-  const nextBtn = lightbox.querySelector(".ri-arrow-right-line").parentElement;
-  let currentIndex = 0;
-
-  function showImage(index) {
-    currentIndex = index;
-    lightboxImg.src = galleryItems[index].src;
-    lightbox.classList.remove("hidden");
-    document.body.style.overflow = "hidden";
-  }
-
-  function hideImage() {
-    lightbox.classList.add("hidden");
-    document.body.style.overflow = "";
-  }
-
-  function showNext() {
-    currentIndex = (currentIndex + 1) % galleryItems.length;
-    lightboxImg.src = galleryItems[currentIndex].src;
-  }
-
-  function showPrev() {
-    currentIndex =
-      (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-    lightboxImg.src = galleryItems[currentIndex].src;
-  }
-
-  galleryItems.forEach((img, index) => {
-    img.addEventListener("click", () => showImage(index));
-  });
-
-  closeBtn.addEventListener("click", hideImage);
-  nextBtn.addEventListener("click", showNext);
-  prevBtn.addEventListener("click", showPrev);
-
-  document.addEventListener("keydown", (e) => {
-    if (!lightbox.classList.contains("hidden")) {
-      if (e.key === "Escape") hideImage();
-      if (e.key === "ArrowRight") showNext();
-      if (e.key === "ArrowLeft") showPrev();
-    }
-  });
-
-  const loadMoreButton = document.querySelector(".load-more");
-  loadMoreButton.addEventListener("click", function () {
-    const spinner = this.querySelector(".spinner");
-    spinner.style.display = "inline-block";
-    setTimeout(function () {
-      spinner.style.display = "none";
-      loadMoreButton.textContent = "No More Images";
-      loadMoreButton.disabled = true;
-      loadMoreButton.classList.add("bg-gray-400");
-      loadMoreButton.classList.remove("bg-primary", "hover:bg-primary/90");
-    }, 1500);
-  });
-
-  if (window.innerWidth < 768) {
-    window.addEventListener("scroll", function () {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      if (scrollPosition >= documentHeight - 100 && !loadMoreButton.disabled) {
-        loadMoreButton.click();
-      }
-    });
-  }
-});
-</script>
- <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const imageElement = document.querySelectorAll(".myImage");
-        const footerImage =  document.querySelector("#footerImage")
-        // Save the previous URL for tracking
-        const previousUrl = document.referrer; // gives you the URL of the page the user came from
-      let base = localStorage.getItem("previousPage");
-      console.log(base);
-      const links = document.querySelectorAll(".url");
-      links.forEach((link) => {
-        link.href = base;
-      });
-        const url = localStorage.getItem("myImage");
-        const footer = localStorage.getItem("footer")
-        const params = new URLSearchParams(window.location.search);
-        const fromPage = params.get("from");
-        if (fromPage === "geotech") {
-          let url =
-            "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fgeotech.png?alt=media&token=0a632c2d-43ba-45b5-a60a-6b528730f14f";
-          let footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fgeotech%20white.png?alt=media&token=cf2a1167-4c9c-437e-8fa9-1d6898dab70a"
-          imageElement.forEach((img) => {
-            img.src = url;
-          });
-          footerImage.src = footer;
-          if (previousUrl) {
-            localStorage.setItem("previousPage", previousUrl);
-            console.log("Previous URL:", previousUrl);
-          }
-          localStorage.setItem("myImage", url);
-          localStorage.setItem("footer", footer);
-        } else if (fromPage === "studio") {
-          let url =
-            "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fstudio.png?alt=media&token=cb1eaca5-28c0-4730-a9db-92537a07823e";
-          let footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fstudio%20white.png?alt=media&token=8a25caa3-75f4-42b6-b354-b10d35e64f07"
-          imageElement.forEach((img) => {
-            img.src = url;
-          });
-          footerImage.src = footer;
-          if (previousUrl) {
-            localStorage.setItem("previousPage", previousUrl);
-            console.log("Previous URL:", previousUrl);
-          }
-          localStorage.setItem("myImage", url);
-          localStorage.setItem("footer", footer);
-        } else if (fromPage === "consult") {
-          let url =
-            "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fconsult.png?alt=media&token=b420c0a2-9d3b-4fbc-9fc2-540c0495e553";
-          let footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fconsult%20white.png?alt=media&token=3a26cd8d-5b3f-4b49-8ce2-e90cce8cccc3"
-          imageElement.forEach((img) => {
-            img.src = url;
-          });
-          footerImage.src = footer
-          if (previousUrl) {
-            localStorage.setItem("previousPage", previousUrl);
-            console.log("Previous URL:", previousUrl);
-          }
-          localStorage.setItem("myImage", url);
-          localStorage.setItem("footer", footer);
+    <!-- Lightbox -->
+    <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden">
+      <button class="absolute top-4 right-4 text-white hover:text-primary transition-colors">
+        <i class="ri-close-line text-3xl"></i>
+      </button>
+      <button class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-primary transition-colors">
+        <i class="ri-arrow-left-line text-3xl"></i>
+      </button>
+      <button class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-primary transition-colors">
+        <i class="ri-arrow-right-line text-3xl"></i>
+      </button>
+      <div class="flex items-center justify-center h-full">
+        <img src="" alt="Lightbox Image" class="max-h-[90vh] max-w-[90vw] object-contain">
+      </div>
+    </div>
+  </section>
+  <!-- CTA Section -->
+  <section class="bg-white py-16 md:py-20">
+    <div class="container mx-auto px-6 max-w-4xl text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8">Want to build with Elite?</h2>
+      <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6">
+        <button
+          class="bg-primary text-white px-6 py-3 rounded-button hover:bg-primary/90 transition-colors w-full md:w-auto whitespace-nowrap">Book
+          a Consultation</button>
+        <button
+          class="border border-primary text-primary px-6 py-3 rounded-button hover:bg-primary hover:text-white transition-colors w-full md:w-auto whitespace-nowrap">Share
+          Your Project Idea</button>
+      </div>
+    </div>
+  </section>
+  <script id="mobile-menu-script">
+    document.addEventListener("DOMContentLoaded", function () {
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      mobileMenuButton.addEventListener("click", function () {
+        mobileMenu.classList.toggle("active");
+        const icon = mobileMenuButton.querySelector("i");
+        if (mobileMenu.classList.contains("active")) {
+          icon.classList.remove("ri-menu-line");
+          icon.classList.add("ri-close-line");
         } else {
-          imageElement.forEach((img) => {
-            img.src = url;
-          });
-          footerImage.src = footer;
+          icon.classList.remove("ri-close-line");
+          icon.classList.add("ri-menu-line");
         }
       });
-    </script>
-<!-- Footer -->
-<footer class="bg-gray-900 text-gray-300 pt-16 pb-12">
-<div class="container mx-auto px-6">
-<div class="flex flex-wrap justify-between gap-y-10 mb-12 text-left">
-<!-- Company Info -->
-<div class="w-full sm:w-[48%] lg:w-[23%] max-w-[280px]">
-  <a href="" class="url" >
+    });
+  </script>
+  <script id="gallery-script">
+    document.addEventListener("DOMContentLoaded", function () {
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = lightbox.querySelector("img");
+      const galleryItems = document.querySelectorAll(".gallery-item img");
+      const closeBtn = lightbox.querySelector(".ri-close-line").parentElement;
+      const prevBtn = lightbox.querySelector(".ri-arrow-left-line").parentElement;
+      const nextBtn = lightbox.querySelector(".ri-arrow-right-line").parentElement;
+      let currentIndex = 0;
 
-    <img
-    id="footerImage"
-    src=""
-    alt="Elite Geotech & NDT Logo"
-    class="h-[150px] w-auto -mt-[2.5rem] -mb-4 "
-    />
-  </a>
-<p class="text-sm leading-relaxed mb-6">Elite Geotech & NDT has been at the forefront of engineering excellence since 1995, delivering innovative solutions across Maharashtra.</p>
-<div class="flex space-x-4">
-<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full border border-gray-700 hover:border-primary hover:text-primary transition-colors">
-<i class="ri-linkedin-line"></i>
-</a>
-<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full border border-gray-700 hover:border-primary hover:text-primary transition-colors">
-<i class="ri-twitter-x-line"></i>
-</a>
-<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full border border-gray-700 hover:border-primary hover:text-primary transition-colors">
-<i class="ri-instagram-line"></i>
-</a>
-<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full border border-gray-700 hover:border-primary hover:text-primary transition-colors">
-<i class="ri-facebook-line"></i>
-</a>
-</div>
-</div>
-<!-- Quick Links -->
-<div class="w-full lg:w-[23%] max-w-[300px] sm:text-center">
-<h3 class="text-white font-semibold mb-6">Quick Links</h3>
-<ul class="space-y-3">
-<li><a href="aboutus.html" class="hover:text-primary transition-colors">About Us</a></li>
-<!-- <li><a href="/services" class="hover:text-primary transition-colors">Our Services</a></li> -->
-<!-- <li><a href="/projects" class="hover:text-primary transition-colors">Latest Projects</a></li> -->
- <li><a href="gallery.html" class="hover:text-primary transition-colors">Project Gallery</a></li> 
-<li><a href="careers.html" class="hover:text-primary transition-colors">Careers </a></li>
- <li><a href="contactus.html" class="hover:text-primary transition-colors">Contact Us</a></li> 
-<!-- <li><a href="/news" class="hover:text-primary transition-colors">News & Updates</a></li> -->
-</ul>
-</div>
-<!-- Services -->
-<div class="w-full sm:w-[48%] lg:w-[23%] max-w-[240px]">
-<h3 class="text-white font-semibold mb-6">Our Services</h3>
-<ul class="space-y-3">
-<li><a href="/services/construction" class="hover:text-primary transition-colors">Soil Bearing Capacity Test</a></li>
-<li><a href="/services/design" class="hover:text-primary transition-colors">Site Reports & Recommendations</a></li>
-<li><a href="/services/renovation" class="hover:text-primary transition-colors">Non Destructive Test
-</a></li>
-<li><a href="/services/consulting" class="hover:text-primary transition-colors">Destructive Test</a></li>
-<!--<li><a href="/services/sustainability" class="hover:text-primary transition-colors">Sustainable Solutions</a></li>-->
-</ul>
-</div>
-<!-- Contact Info -->
-  <div class="w-full sm:w-[48%] lg:w-[23%] max-w-[260px]">
-            <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
-            <ul class="space-y-3">
-              <li class="flex items-start">
-                <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
-                  <i class="ri-map-pin-line text-primary"></i>
-                </div>
-                <span class="text-gray-400"
-                  >Shop 2C, Shanti City Center, Talegaon Station Rd, Rajgurav Colony, Talegaon Dabhade, Maharashtra 410507</span
-                >
-              </li>
-              <li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
-<i class="ri-map-pin-line text-primary"></i>
-</div>
-<span class="text-gray-400">Shop B-8, First Floor, Pravia Business Center, Spine Rd, opposite RTO, Jal Vayu Vihar, Sector No. 6, PCMC, Pimpri-Chinchwad, Maharashtra 412105</span>
-</li>
-              <li class="flex flex-col gap-2 items-start">
-  <div class="flex items-start">
-    <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
-      <i class="ri-phone-line text-primary"></i>
-    </div>
-    <span class="text-gray-400">+91 9970070415</span>
-  </div>
-  <div class="flex items-start">
-    <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
-      <i class="ri-phone-line text-primary"></i>
-    </div>
-    <span class="text-gray-400">+91 02067878078</span>
-  </div>
-  <div class="flex items-start">
-    <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
-      <i class="ri-phone-line text-primary"></i>
-    </div>
-    <span class="text-gray-400">+91 02114 222500</span>
-  </div>
-</li>
-              <li class="flex items-center">
-                <div class="w-5 h-5 flex items-center justify-center mr-2">
-                  <i class="ri-mail-line text-primary"></i>
-                </div>
-                <span class="text-gray-400">contact@theeliteenterprise.com</span>
-              </li>
-            </ul>
+      function showImage(index) {
+        currentIndex = index;
+        lightboxImg.src = galleryItems[index].src;
+        lightbox.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+
+      function hideImage() {
+        lightbox.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+
+      function showNext() {
+        currentIndex = (currentIndex + 1) % galleryItems.length;
+        lightboxImg.src = galleryItems[currentIndex].src;
+      }
+
+      function showPrev() {
+        currentIndex =
+          (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+        lightboxImg.src = galleryItems[currentIndex].src;
+      }
+
+      galleryItems.forEach((img, index) => {
+        img.addEventListener("click", () => showImage(index));
+      });
+
+      closeBtn.addEventListener("click", hideImage);
+      nextBtn.addEventListener("click", showNext);
+      prevBtn.addEventListener("click", showPrev);
+
+      document.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("hidden")) {
+          if (e.key === "Escape") hideImage();
+          if (e.key === "ArrowRight") showNext();
+          if (e.key === "ArrowLeft") showPrev();
+        }
+      });
+
+      const loadMoreButton = document.querySelector(".load-more");
+      loadMoreButton.addEventListener("click", function () {
+        const spinner = this.querySelector(".spinner");
+        spinner.style.display = "inline-block";
+        setTimeout(function () {
+          spinner.style.display = "none";
+          loadMoreButton.textContent = "No More Images";
+          loadMoreButton.disabled = true;
+          loadMoreButton.classList.add("bg-gray-400");
+          loadMoreButton.classList.remove("bg-primary", "hover:bg-primary/90");
+        }, 1500);
+      });
+
+      if (window.innerWidth < 768) {
+        window.addEventListener("scroll", function () {
+          const scrollPosition = window.scrollY + window.innerHeight;
+          const documentHeight = document.documentElement.scrollHeight;
+          if (scrollPosition >= documentHeight - 100 && !loadMoreButton.disabled) {
+            loadMoreButton.click();
+          }
+        });
+      }
+    });
+  </script>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const imageElement = document.querySelectorAll(".myImage");
+    const footerImage = document.querySelector("#footerImage");
+    const linkElements = document.querySelectorAll(".url"); // the clickable logo <a> tags
+
+    // Get saved values from localStorage
+    const savedLogo = localStorage.getItem("myImage");
+    const savedFooter = localStorage.getItem("footer");
+    const savedHomeUrl = localStorage.getItem("homeUrl");
+
+    // Check query params
+    const params = new URLSearchParams(window.location.search);
+    const fromPage = params.get("from");
+
+    let url = savedLogo;
+    let footer = savedFooter;
+    let homeUrl = savedHomeUrl;
+
+    // If user came with ?from=..., set logos and home URL
+    if (fromPage === "geotech") {
+      url = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fgeotech.png?alt=media&token=0a632c2d-43ba-45b5-a60a-6b528730f14f";
+      footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fgeotech%20white.png?alt=media&token=cf2a1167-4c9c-437e-8fa9-1d6898dab70a";
+      homeUrl = "https://egn.theeliteenterprise.com/";
+    } else if (fromPage === "studio") {
+      url = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fstudio.png?alt=media&token=cb1eaca5-28c0-4730-a9db-92537a07823e";
+      footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fstudio%20white.png?alt=media&token=8a25caa3-75f4-42b6-b354-b10d35e64f07";
+      homeUrl = "https://ess.theeliteenterprise.com/";
+    } else if (fromPage === "consult") {
+      url = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fconsult.png?alt=media&token=b420c0a2-9d3b-4fbc-9fc2-540c0495e553";
+      footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fconsult%20white.png?alt=media&token=3a26cd8d-5b3f-4b49-8ce2-e90cce8cccc3";
+      homeUrl = "https://esc.theeliteenterprise.com/";
+    }
+
+    // Apply logos and links
+    if (url && footer) {
+      imageElement.forEach((img) => (img.src = url));
+      footerImage.src = footer;
+
+      if (homeUrl) {
+        linkElements.forEach((link) => (link.href = homeUrl));
+      }
+
+      // Save everything for future navigation
+      localStorage.setItem("myImage", url);
+      localStorage.setItem("footer", footer);
+      if (homeUrl) localStorage.setItem("homeUrl", homeUrl);
+    }
+  });
+</script>
+
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 pt-16 pb-12">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-wrap justify-between gap-y-10 mb-12 text-left">
+        <!-- Company Info -->
+        <div class="w-full sm:w-[48%] lg:w-[23%] max-w-[280px]">
+          <a href="" class="url">
+
+            <img id="footerImage" src="" alt="Elite Geotech & NDT Logo" class="h-[150px] w-auto -mt-[2.5rem] -mb-4 " />
+          </a>
+          <p class="text-sm leading-relaxed mb-6">Elite Geotech & NDT has been at the forefront of engineering
+            excellence since 1995, delivering innovative solutions across Maharashtra.</p>
+          <div class="flex space-x-4">
+            <a href="#"
+              class="w-8 h-8 flex items-center justify-center rounded-full border border-gray-700 hover:border-primary hover:text-primary transition-colors">
+              <i class="ri-linkedin-line"></i>
+            </a>
+            <a href="#"
+              class="w-8 h-8 flex items-center justify-center rounded-full border border-gray-700 hover:border-primary hover:text-primary transition-colors">
+              <i class="ri-twitter-x-line"></i>
+            </a>
+            <a href="#"
+              class="w-8 h-8 flex items-center justify-center rounded-full border border-gray-700 hover:border-primary hover:text-primary transition-colors">
+              <i class="ri-instagram-line"></i>
+            </a>
+            <a href="#"
+              class="w-8 h-8 flex items-center justify-center rounded-full border border-gray-700 hover:border-primary hover:text-primary transition-colors">
+              <i class="ri-facebook-line"></i>
+            </a>
           </div>
-</div>
-<!-- Bottom Bar -->
-<div class="border-t border-gray-800 mt-12 pt-8">
-<div class="flex flex-col md:flex-row justify-between items-center">
-<p class="text-sm">&copy; 2025 Elite Enterprises. All rights reserved.</p>
-<div class="flex space-x-6 mt-4 md:mt-0">
-<a href="/privacy" class="text-sm hover:text-primary transition-colors">Privacy Policy</a>
-<a href="/terms" class="text-sm hover:text-primary transition-colors">Terms of Service</a>
-<a href="/sitemap" class="text-sm hover:text-primary transition-colors">Sitemap</a>
-</div>
-</div>
-</div>
-</div>
-</footer>
+        </div>
+        <!-- Quick Links -->
+        <div class="w-full lg:w-[23%] max-w-[300px] sm:text-center">
+          <h3 class="text-white font-semibold mb-6">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="aboutus.html" class="hover:text-primary transition-colors">About Us</a></li>
+            <!-- <li><a href="/services" class="hover:text-primary transition-colors">Our Services</a></li> -->
+            <!-- <li><a href="/projects" class="hover:text-primary transition-colors">Latest Projects</a></li> -->
+            <li><a href="gallery.html" class="hover:text-primary transition-colors">Project Gallery</a></li>
+            <li><a href="careers.html" class="hover:text-primary transition-colors">Careers </a></li>
+            <li><a href="contactus.html" class="hover:text-primary transition-colors">Contact Us</a></li>
+            <!-- <li><a href="/news" class="hover:text-primary transition-colors">News & Updates</a></li> -->
+          </ul>
+        </div>
+        <!-- Services -->
+        <div class="w-full sm:w-[48%] lg:w-[23%] max-w-[240px]">
+          <h3 class="text-white font-semibold mb-6">Our Services</h3>
+          <ul class="space-y-3">
+            <li><a href="/services/construction" class="hover:text-primary transition-colors">Soil Bearing Capacity
+                Test</a></li>
+            <li><a href="/services/design" class="hover:text-primary transition-colors">Site Reports &
+                Recommendations</a></li>
+            <li><a href="/services/renovation" class="hover:text-primary transition-colors">Non Destructive Test
+              </a></li>
+            <li><a href="/services/consulting" class="hover:text-primary transition-colors">Destructive Test</a></li>
+            <!--<li><a href="/services/sustainability" class="hover:text-primary transition-colors">Sustainable Solutions</a></li>-->
+          </ul>
+        </div>
+        <!-- Contact Info -->
+        <div class="w-full sm:w-[48%] lg:w-[23%] max-w-[260px]">
+          <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+                <i class="ri-map-pin-line text-primary"></i>
+              </div>
+              <span class="text-gray-400">Shop 2C, Shanti City Center, Talegaon Station Rd, Rajgurav Colony, Talegaon
+                Dabhade, Maharashtra 410507</span>
+            </li>
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+                <i class="ri-map-pin-line text-primary"></i>
+              </div>
+              <span class="text-gray-400">Shop B-8, First Floor, Pravia Business Center, Spine Rd, opposite RTO, Jal
+                Vayu Vihar, Sector No. 6, PCMC, Pimpri-Chinchwad, Maharashtra 412105</span>
+            </li>
+            <li class="flex flex-col gap-2 items-start">
+              <div class="flex items-start">
+                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
+                  <i class="ri-phone-line text-primary"></i>
+                </div>
+                <span class="text-gray-400">+91 9970070415</span>
+              </div>
+              <div class="flex items-start">
+                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
+                  <i class="ri-phone-line text-primary"></i>
+                </div>
+                <span class="text-gray-400">+91 02067878078</span>
+              </div>
+              <div class="flex items-start">
+                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
+                  <i class="ri-phone-line text-primary"></i>
+                </div>
+                <span class="text-gray-400">+91 02114 222500</span>
+              </div>
+            </li>
+            <li class="flex items-center">
+              <div class="w-5 h-5 flex items-center justify-center mr-2">
+                <i class="ri-mail-line text-primary"></i>
+              </div>
+              <span class="text-gray-400">contact@theeliteenterprise.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Bottom Bar -->
+      <div class="border-t border-gray-800 mt-12 pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-sm">&copy; 2025 Elite Enterprises. All rights reserved.</p>
+          <div class="flex space-x-6 mt-4 md:mt-0">
+            <a href="/privacy" class="text-sm hover:text-primary transition-colors">Privacy Policy</a>
+            <a href="/terms" class="text-sm hover:text-primary transition-colors">Terms of Service</a>
+            <a href="/sitemap" class="text-sm hover:text-primary transition-colors">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
+
 </html>
