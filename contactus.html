@@ -16,7 +16,7 @@
             sm: "4px",
             DEFAULT: "8px",
             md: "12px",
-            lg: "16px", 
+            lg: "16px",
             xl: "20px",
             "2xl": "24px",
             "3xl": "32px",
@@ -59,6 +59,16 @@
     input[type="number"]::-webkit-outer-spin-button {
       -webkit-appearance: none;
       margin: 0;
+    }
+
+    .mobile-menu {
+      transition: max-height 0.3s ease;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    .mobile-menu.active {
+      max-height: 500px;
     }
 
     .custom-checkbox {
@@ -107,13 +117,16 @@
 
     body {
       text-align: justify;
-
+      text-justify: inter-word;
+      hyphens: auto;
+      word-spacing: 0;
+      /* prevents browsers from adding extra spacing */
     }
   </style>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WWL6ZGGZ05"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WWL6ZGGZ05"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-WWL6ZGGZ05'); 
@@ -180,7 +193,7 @@
     <div class="container mx-auto px-6 py-4 flex items-center justify-between">
       <a href="" class="flex items-center url h-[60px]">
         <!-- src="https://static.readdy.ai/image/a63ec0b6f34fb9b66d50256c348ce6a2/14473f2f2ab90e80defb244166b75318.png" -->
-        <img src="" alt="Elite Enterprises Logo" class="h-[150px] w-auto myImage" />
+        <img src="" alt="Elite Enterprises Logo" class="h-[160px] w-auto myImage" />
       </a>
       <!-- Desktop Navigation -->
       <nav class="hidden lg:flex items-center space-x-8">
@@ -209,41 +222,42 @@
           Us</a>
       </div>
       <!-- Mobile Menu Button -->
-      <button id="mobile-menu-button"
-        class="lg:hidden w-12 h-12 flex items-center justify-center text-gray-800 hover:bg-gray-100 rounded-full transition-colors">
-        <i class="ri-menu-line ri-xl"></i>
-      </button>
+      <div class="md:hidden w-12 h-12 flex items-center justify-center" id="mobile-menu-button">
+        <i class="ri-menu-line text-gray-800 text-2xl"></i>
+      </div>
     </div>
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden bg-white shadow-lg absolute w-full top-full">
-      <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
-        <!-- <a
-            href="/"
-            class="text-gray-800 py-3 hover:text-primary transition-colors font-semibold"
-            >Home</a
-          > -->
-        <a href="/aboutus.html" class="text-gray-800 py-3 hover:text-primary transition-colors font-semibold">About
-          Us</a>
-        <a href="/gallery.html"
-          class="text-gray-800 py-3 hover:text-primary transition-colors font-semibold">Gallery</a>
-        <!-- <a
-            href="/services"
-            class="text-gray-800 py-3 hover:text-primary transition-colors font-semibold"
-            >Services</a
-          > -->
-        <a href="./careers.html"
-          class="text-gray-800 py-3 hover:text-primary transition-colors font-semibold">Careers</a>
-        <a href="./contactus.html" class="text-primary py-3 font-semibold">Contact Us</a>
-        <div class="flex flex-col space-y-4 pt-4 border-t border-gray-100">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIZsEIfxR6zbsasuNOkzKV1vK_SZwNwgkVKRUK1i50LPpUPg/viewform?usp=header"
-            class="px-6 py-3 border-2 border-primary text-primary text-center hover:bg-primary/5 transition-all font-semibold !rounded-button whitespace-nowrap">Get
-            Started</a>
-          <a href="./contactus.htmlW"
-            class="px-6 py-3 bg-primary text-white text-center hover:bg-primary/90 transition-all font-semibold !rounded-button whitespace-nowrap shadow-md hover:shadow-lg">Contact
-            Us</a>
+    <div class="mobile-menu md:hidden flex w-full justify-center" id="mobile-menu">
+      <!-- Instead of fixed h/w use responsive width + aspect ratio -->
+      <div class="w-[90%] max-w-[328px] aspect-square">
+        <div class="py-6 space-y-4">
+          <a href="./aboutus.html" class="block text-gray-800 hover:text-primary transition-colors font-semibold">
+            About Us
+          </a>
+          <a href="./gallery.html" class="block text-gray-800 hover:text-primary transition-colors font-semibold">
+            Gallery
+          </a>
+          <a href="./careers.html" class="block text-gray-800 hover:text-primary transition-colors font-semibold">
+            Careers
+          </a>
+          <a href="./contactus.html" class="block text-primary font-semibold">
+            Contact Us
+          </a>
+
+          <div class="flex flex-col space-y-3 pt-4">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIZsEIfxR6zbsasuNOkzKV1vK_SZwNwgkVKRUK1i50LPpUPg/viewform?usp=header"
+              class="border-2 border-primary text-primary px-6 py-2.5 rounded-button hover:bg-primary/5 transition-colors whitespace-nowrap font-semibold">
+              Get Started
+            </a>
+            <button
+              class="bg-primary text-white px-6 py-2.5 rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap font-semibold shadow-sm">
+              Contact Us
+            </button>
+          </div>
         </div>
       </div>
     </div>
+
   </header>
   <!-- Hero Section -->
   <section class="hero-section w-full h-[500px] flex items-center justify-center mt-16">
@@ -447,8 +461,8 @@
           <p class="text-gray-600">General Inquiries</p>
           <a href="mailto:elitestructcon@gmail.com" class="text-primary hover:underline">elitestructcon@gmail.com</a>
           <p class="text-gray-600 mt-2">Support Team</p>
-          <a href="mailto:support@eliteenterprises.com"
-            class="text-primary hover:underline">support@eliteenterprises.com</a>
+          <a href="mailto:contact@theeliteenterprise.com"
+            class="text-primary hover:underline">contact@theeliteenterprise.com</a>
         </div>
       </div>
     </div>
@@ -681,10 +695,9 @@
       const mobileMenuButton = document.getElementById("mobile-menu-button");
       const mobileMenu = document.getElementById("mobile-menu");
       mobileMenuButton.addEventListener("click", function () {
-        mobileMenu.classList.toggle("hidden");
-        // Toggle icon between menu and close
+        mobileMenu.classList.toggle("active");
         const icon = mobileMenuButton.querySelector("i");
-        if (icon.classList.contains("ri-menu-line")) {
+        if (mobileMenu.classList.contains("active")) {
           icon.classList.remove("ri-menu-line");
           icon.classList.add("ri-close-line");
         } else {
@@ -788,72 +801,57 @@
       }
     });
   </script>
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      const imageElement = document.querySelectorAll(".myImage");
-      const footerImage = document.querySelector("#footerImage")
-      // Save the previous URL for tracking
-      const previousUrl = document.referrer; // gives you the URL of the page the user came from
-      let base = localStorage.getItem("previousPage");
-      console.log(base);
-      const links = document.querySelectorAll(".url");
-      links.forEach((link) => {
-        link.href = base;
-      });
-      const url = localStorage.getItem("myImage");
-      const footer = localStorage.getItem("footer")
-      const params = new URLSearchParams(window.location.search);
-      const fromPage = params.get("from");
-      if (fromPage === "geotech") {
-        let url =
-          "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fgeotech.png?alt=media&token=0a632c2d-43ba-45b5-a60a-6b528730f14f";
-        let footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fgeotech%20white.png?alt=media&token=cf2a1167-4c9c-437e-8fa9-1d6898dab70a"
-        imageElement.forEach((img) => {
-          img.src = url;
-        });
-        footerImage.src = footer;
-        if (previousUrl) {
-          localStorage.setItem("previousPage", previousUrl);
-          console.log("Previous URL:", previousUrl);
-        }
-        localStorage.setItem("myImage", url);
-        localStorage.setItem("footer", footer);
-      } else if (fromPage === "studio") {
-        let url =
-          "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fstudio.png?alt=media&token=cb1eaca5-28c0-4730-a9db-92537a07823e";
-        let footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fstudio%20white.png?alt=media&token=8a25caa3-75f4-42b6-b354-b10d35e64f07"
-        imageElement.forEach((img) => {
-          img.src = url;
-        });
-        footerImage.src = footer;
-        if (previousUrl) {
-          localStorage.setItem("previousPage", previousUrl);
-          console.log("Previous URL:", previousUrl);
-        }
-        localStorage.setItem("myImage", url);
-        localStorage.setItem("footer", footer);
-      } else if (fromPage === "consult") {
-        let url =
-          "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fconsult.png?alt=media&token=b420c0a2-9d3b-4fbc-9fc2-540c0495e553";
-        let footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fconsult%20white.png?alt=media&token=3a26cd8d-5b3f-4b49-8ce2-e90cce8cccc3"
-        imageElement.forEach((img) => {
-          img.src = url;
-        });
-        footerImage.src = footer
-        if (previousUrl) {
-          localStorage.setItem("previousPage", previousUrl);
-          console.log("Previous URL:", previousUrl);
-        }
-        localStorage.setItem("myImage", url);
-        localStorage.setItem("footer", footer);
-      } else {
-        imageElement.forEach((img) => {
-          img.src = url;
-        });
-        footerImage.src = footer;
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const imageElement = document.querySelectorAll(".myImage");
+    const footerImage = document.querySelector("#footerImage");
+    const linkElements = document.querySelectorAll(".url"); // the clickable logo <a> tags
+
+    // Get saved values from localStorage
+    const savedLogo = localStorage.getItem("myImage");
+    const savedFooter = localStorage.getItem("footer");
+    const savedHomeUrl = localStorage.getItem("homeUrl");
+
+    // Check query params
+    const params = new URLSearchParams(window.location.search);
+    const fromPage = params.get("from");
+
+    let url = savedLogo;
+    let footer = savedFooter;
+    let homeUrl = savedHomeUrl;
+
+    // If user came with ?from=..., set logos and home URL
+    if (fromPage === "geotech") {
+      url = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fgeotech.png?alt=media&token=0a632c2d-43ba-45b5-a60a-6b528730f14f";
+      footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fgeotech%20white.png?alt=media&token=cf2a1167-4c9c-437e-8fa9-1d6898dab70a";
+      homeUrl = "https://egn.theeliteenterprise.com/";
+    } else if (fromPage === "studio") {
+      url = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fstudio.png?alt=media&token=cb1eaca5-28c0-4730-a9db-92537a07823e";
+      footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fstudio%20white.png?alt=media&token=8a25caa3-75f4-42b6-b354-b10d35e64f07";
+      homeUrl = "https://ess.theeliteenterprise.com/";
+    } else if (fromPage === "consult") {
+      url = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fconsult.png?alt=media&token=b420c0a2-9d3b-4fbc-9fc2-540c0495e553";
+      footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fconsult%20white.png?alt=media&token=3a26cd8d-5b3f-4b49-8ce2-e90cce8cccc3";
+      homeUrl = "https://esc.theeliteenterprise.com/";
+    }
+
+    // Apply logos and links
+    if (url && footer) {
+      imageElement.forEach((img) => (img.src = url));
+      footerImage.src = footer;
+
+      if (homeUrl) {
+        linkElements.forEach((link) => (link.href = homeUrl));
       }
-    });
-  </script>
+
+      // Save everything for future navigation
+      localStorage.setItem("myImage", url);
+      localStorage.setItem("footer", footer);
+      if (homeUrl) localStorage.setItem("homeUrl", homeUrl);
+    }
+  });
+</script>
+
 </body>
 
 </html>

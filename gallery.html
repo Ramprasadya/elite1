@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -179,6 +180,7 @@
   </script>
 </head>
 
+
 <body class="bg-gray-50">
   <!-- <script>
       window.addEventListener("DOMContentLoaded", () => {
@@ -262,7 +264,7 @@
       <div class="flex items-center justify-between h-20 md:h-[80px]">
         <!-- Logo -->
         <a href="" class="url">
-          <img src="" alt="Elite Enterprises Logo" class="h-[150px] w-auto myImage" />
+          <img src="" alt="Elite Enterprises Logo" class="h-[160px] w-auto myImage" />
         </a>
         <!-- Desktop Navigation -->
         <div class="hidden md:flex items-center justify-center space-x-10">
@@ -292,13 +294,13 @@
       <div class="mobile-menu md:hidden" id="mobile-menu">
         <div class="py-6 space-y-4">
           <!-- <a href="/" class="block text-gray-800 hover:text-primary transition-colors font-semibold">Home</a> -->
-          <a href="/aboutus.html" class="block text-gray-800 hover:text-primary transition-colors font-semibold">About
+          <a href="./aboutus.html" class="block text-gray-800 hover:text-primary transition-colors font-semibold">About
             Us</a>
-          <a href="/gallery.html" class="block text-primary font-semibold">Gallery</a>
+          <a href="./gallery.html" class="block text-primary font-semibold">Gallery</a>
           <!-- <a href="/services" class="block text-gray-800 hover:text-primary transition-colors font-semibold">Services</a> -->
-          <a href="/careers.html"
+          <a href="./careers.html"
             class="block text-gray-800 hover:text-primary transition-colors font-semibold">Careers</a>
-          <a href="/contactus.html"
+          <a href="./contactus.html"
             class="block text-gray-800 hover:text-primary transition-colors font-semibold">Contact Us</a>
           <div class="flex flex-col space-y-3 pt-4">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIZsEIfxR6zbsasuNOkzKV1vK_SZwNwgkVKRUK1i50LPpUPg/viewform?usp=header"
@@ -331,21 +333,31 @@
   <!-- Gallery Grid -->
   <section class="py-16 md:py-20">
     <div class="container mx-auto px-6 max-w-9xl">
-      <div class="flex flex-wrap gap-4 p-4 mb-8 w-full justify-center ">
-        <!-- bungalow -->
-        <label class="inline-flex items-center cursor-pointer">
-          <input type="checkbox" value="bungalow" class="sr-only peer category-switch" checked>
-          <div class="relative w-11 h-6 bg-gray-200 rounded-full 
-                peer peer-focus:ring-4 peer-focus:ring-blue-300 
-                dark:peer-focus:ring-blue-800 dark:bg-gray-700 
-                peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full 
-                peer-checked:after:border-white after:content-[''] after:absolute 
-                after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 
-                after:border after:rounded-full after:h-5 after:w-5 after:transition-all 
-                dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600">
-          </div>
-          <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Bungalow</span>
-        </label>
+      <div class="w-full max-w-4xl mx-auto mb-12">
+        <!-- Heading -->
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-800 mb-6 text-center">
+          Filter by Category
+        </h2>
+
+        <!-- Category Filters -->
+        <div class="flex flex-wrap gap-6 p-6 w-full justify-center bg-white dark:bg-gray-900 rounded-xl shadow-sm">
+          <!-- Banglow -->
+          <label class="inline-flex items-center cursor-pointer group">
+            <input type="checkbox" value="banglow" class="sr-only peer category-switch" checked>
+            <div class="relative w-12 h-7 bg-gray-200 rounded-full 
+                  peer peer-focus:ring-4 peer-focus:ring-blue-200 
+                  dark:peer-focus:ring-blue-800 dark:bg-gray-700 
+                  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full 
+                  peer-checked:after:border-white after:content-[''] after:absolute 
+                  after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 
+                  after:border after:rounded-full after:h-6 after:w-6 after:transition-all 
+                  dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600">
+            </div>
+            <span
+              class="ms-3 text-base font-medium text-gray-800 dark:text-gray-200 group-hover:text-blue-600 transition-colors">
+              Banglow
+            </span>
+          </label>
 
         <!-- Industry -->
         <label class="inline-flex items-center cursor-pointer">
@@ -472,7 +484,17 @@
         lightbox.classList.remove("hidden");
         document.body.style.overflow = "hidden";
       }
+      function showImage(index) {
+        currentIndex = index;
+        lightboxImg.src = galleryItems[index].src;
+        lightbox.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
 
+      function hideImage() {
+        lightbox.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
       function hideImage() {
         lightbox.classList.add("hidden");
         document.body.style.overflow = "";
@@ -529,72 +551,59 @@
       }
     });
   </script>
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      const imageElement = document.querySelectorAll(".myImage");
-      const footerImage = document.querySelector("#footerImage")
-      // Save the previous URL for tracking
-      const previousUrl = document.referrer; // gives you the URL of the page the user came from
-      let base = localStorage.getItem("previousPage");
-      console.log(base);
-      const links = document.querySelectorAll(".url");
-      links.forEach((link) => {
-        link.href = base;
-      });
-      const url = localStorage.getItem("myImage");
-      const footer = localStorage.getItem("footer")
-      const params = new URLSearchParams(window.location.search);
-      const fromPage = params.get("from");
-      if (fromPage === "geotech") {
-        let url =
-          "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fgeotech.png?alt=media&token=0a632c2d-43ba-45b5-a60a-6b528730f14f";
-        let footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fgeotech%20white.png?alt=media&token=cf2a1167-4c9c-437e-8fa9-1d6898dab70a"
-        imageElement.forEach((img) => {
-          img.src = url;
-        });
-        footerImage.src = footer;
-        if (previousUrl) {
-          localStorage.setItem("previousPage", previousUrl);
-          console.log("Previous URL:", previousUrl);
-        }
-        localStorage.setItem("myImage", url);
-        localStorage.setItem("footer", footer);
-      } else if (fromPage === "studio") {
-        let url =
-          "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fstudio.png?alt=media&token=cb1eaca5-28c0-4730-a9db-92537a07823e";
-        let footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fstudio%20white.png?alt=media&token=8a25caa3-75f4-42b6-b354-b10d35e64f07"
-        imageElement.forEach((img) => {
-          img.src = url;
-        });
-        footerImage.src = footer;
-        if (previousUrl) {
-          localStorage.setItem("previousPage", previousUrl);
-          console.log("Previous URL:", previousUrl);
-        }
-        localStorage.setItem("myImage", url);
-        localStorage.setItem("footer", footer);
-      } else if (fromPage === "consult") {
-        let url =
-          "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fconsult.png?alt=media&token=b420c0a2-9d3b-4fbc-9fc2-540c0495e553";
-        let footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fconsult%20white.png?alt=media&token=3a26cd8d-5b3f-4b49-8ce2-e90cce8cccc3"
-        imageElement.forEach((img) => {
-          img.src = url;
-        });
-        footerImage.src = footer
-        if (previousUrl) {
-          localStorage.setItem("previousPage", previousUrl);
-          console.log("Previous URL:", previousUrl);
-        }
-        localStorage.setItem("myImage", url);
-        localStorage.setItem("footer", footer);
-      } else {
-        imageElement.forEach((img) => {
-          img.src = url;
-        });
-        footerImage.src = footer;
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const imageElement = document.querySelectorAll(".myImage");
+    const footerImage = document.querySelector("#footerImage");
+    const linkElements = document.querySelectorAll(".url"); // the clickable logo <a> tags
+
+    // Get saved values from localStorage
+    const savedLogo = localStorage.getItem("myImage");
+    const savedFooter = localStorage.getItem("footer");
+    const savedHomeUrl = localStorage.getItem("homeUrl");
+
+    // Check query params
+    const params = new URLSearchParams(window.location.search);
+    const fromPage = params.get("from");
+
+    let url = savedLogo;
+    let footer = savedFooter;
+    let homeUrl = savedHomeUrl;
+
+    // If user came with ?from=..., set logos and home URL
+    if (fromPage === "geotech") {
+      url = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fgeotech.png?alt=media&token=0a632c2d-43ba-45b5-a60a-6b528730f14f";
+      footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fgeotech%20white.png?alt=media&token=cf2a1167-4c9c-437e-8fa9-1d6898dab70a";
+      homeUrl = "https://egn.theeliteenterprise.com/";
+    } else if (fromPage === "studio") {
+      url = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fstudio.png?alt=media&token=cb1eaca5-28c0-4730-a9db-92537a07823e";
+      footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fstudio%20white.png?alt=media&token=8a25caa3-75f4-42b6-b354-b10d35e64f07";
+      homeUrl = "https://ess.theeliteenterprise.com/";
+    } else if (fromPage === "consult") {
+      url = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fconsult.png?alt=media&token=b420c0a2-9d3b-4fbc-9fc2-540c0495e553";
+      footer = "https://firebasestorage.googleapis.com/v0/b/projects-afdbf.firebasestorage.app/o/logo%2Fconsult%20white.png?alt=media&token=3a26cd8d-5b3f-4b49-8ce2-e90cce8cccc3";
+      homeUrl = "https://esc.theeliteenterprise.com/";
+    }
+
+    // Apply logos and links
+    if (url && footer) {
+      imageElement.forEach((img) => (img.src = url));
+      footerImage.src = footer;
+
+      if (homeUrl) {
+        linkElements.forEach((link) => (link.href = homeUrl));
       }
-    });
-  </script>
+
+      // Save everything for future navigation
+      localStorage.setItem("myImage", url);
+      localStorage.setItem("footer", footer);
+      if (homeUrl) localStorage.setItem("homeUrl", homeUrl);
+    }
+  });
+</script>
+
+
   <!-- Footer -->
   <footer class="bg-gray-900 text-gray-300 pt-16 pb-12">
     <div class="container mx-auto px-6">
